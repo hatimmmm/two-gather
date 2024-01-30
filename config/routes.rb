@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Routes for the Events controller
+
+  resources :events, only: [:new, :create, :show, :edit, :update, :destroy]
 end

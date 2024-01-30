@@ -1,0 +1,10 @@
+<%= form_for @event do |f| %>
+  <!-- Your form fields go here -->
+  <%= f.text_field :club_id %>
+  <%= f.text_field :event_name %>
+  <%= f.text_field :description%>
+  <%= f.text_field :location%>
+  <%= f.text_field :start_date%>
+  <%= f.text_field :end_date%>
+  <%= f.submit 'Update Event' %>
+<% end %>

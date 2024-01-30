@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-
   def new
     @event = Event.new
   end
@@ -16,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    render :edit_event
   end
 
   def update
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
       redirect_to @event, notice: 'The event was successfully updated.'
     else
       # Validation errors or other issues
-      render :edit
+      render :edit_event
     end
   end
 

@@ -5,7 +5,6 @@ class CreateClubs < ActiveRecord::Migration[7.1]
       t.string :description
       t.string :image_url
       t.boolean :public
-      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

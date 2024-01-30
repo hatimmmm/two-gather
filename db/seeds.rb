@@ -17,7 +17,15 @@ puts "Database is squeaky deeky clean :)"
 
 User.create({
               first_name: "Human",
-              last_name: "Doe",
+              last_name: "User",
+              email: "johndoe@gmail.com",
+              password: "blabla",
+              password_confirmation: "blabla"
+            })
+
+User.create({
+              first_name: "Trash",
+              last_name: "Man",
               email: "johndoe@gmail.com",
               password: "blabla",
               password_confirmation: "blabla"
@@ -41,7 +49,7 @@ Club.create({
 
 Club.create({
               name: "Sabacc",
-              description: "We are robot organisms seeking to share oil and cows around the office electric socket.",
+              description: "The fairest game of chance on this side of the galaxy.",
               image_url: "https://applemagazine.com/wp-content/uploads/2021/05/lando-twins-sabacc-solo-a-star-wars-story.jpg",
               public: true
             })
@@ -52,5 +60,7 @@ Club.create({
               image_url: "",
               public: true
             })
+
+
 
 puts "#{Club.count} clubs created"

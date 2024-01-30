@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    Post.comments
   end
 
   def destroy

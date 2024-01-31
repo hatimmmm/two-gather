@@ -1,4 +1,4 @@
-class MembershipsController < ApplicationController
+class MembershipController < ApplicationController
   before_action :set_membership, only: [:show, :destroy]
 
   def new

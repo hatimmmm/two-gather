@@ -72,3 +72,5 @@ gem "devise"
 
 # Use Postgres as the database for Active Record
 gem "pg", "~> 1.1"
+
+gem 'sass-rails'

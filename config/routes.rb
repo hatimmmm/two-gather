@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   # Routes for the Events controller
 
   resources :events, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :clubs
 end

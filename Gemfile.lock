@@ -111,6 +111,11 @@ GEM
     error_highlight (0.6.0)
     erubi (1.12.0)
     ffi (1.16.3)
+<<<<<<< HEAD
+=======
+    font-awesome-sass (6.5.1)
+      sassc (~> 2.0)
+>>>>>>> f4ac46cf49c8c9bdae1ce77c48ccd6563c37d126
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -219,6 +224,7 @@ GEM
     rexml (3.2.6)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+<<<<<<< HEAD
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -229,6 +235,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+=======
+    sassc (2.4.0)
+      ffi (~> 1.9)
+>>>>>>> f4ac46cf49c8c9bdae1ce77c48ccd6563c37d126
     selenium-webdriver (4.17.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -283,6 +293,7 @@ DEPENDENCIES
   debug
   devise
   error_highlight (>= 0.4.0)
+  font-awesome-sass (~> 6.5.1)
   importmap-rails
   jbuilder
   pg (~> 1.1)

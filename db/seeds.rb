@@ -15,9 +15,9 @@ Post.destroy_all
 Category.destroy_all
 Comment.destroy_all
 
-puts "Database is squeaky deeky clean :)"
-"..................................................."
-puts "Users being conceived..."
+puts 'Database is squeaky deeky clean :)'
+puts '...................................................'
+puts 'Users being conceived...'
 
 User.create({
               first_name: "Human",

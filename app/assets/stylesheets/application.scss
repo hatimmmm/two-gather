@@ -3,4 +3,35 @@
 @import "./config/fonts";
 @import "./pages/index";
 @import "./components/navbar";
-@import 'components/navbar';
+$primary: #f00;
+$light-yellow: #f0f;
+
+.dropdown-menu{
+  ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      border: solid 3px $primary;
+      border-radius: 10px;
+      background-color: whi;
+      width: fit-content;
+      padding: 20px   ;
+      right: 10px;
+      top: 60px;
+      position: absolute;
+      li{
+          margin: 5px 0;
+          a{
+              text-decoration: none;
+              color: $primary;
+              font-size: 20px;
+              font-weight: bold;
+              &:hover{
+                  color: $light-yellow;
+              }
+          }
+      }
+  }
+}

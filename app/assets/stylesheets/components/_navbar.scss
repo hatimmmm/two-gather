@@ -77,9 +77,35 @@
   }
 
 
-  .dropdown-menu {
-    /* other styles for the dropdown menu */
-  }
+  .dropdown-menu{
+    ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        border: solid 3px $primary;
+        border-radius: 10px;
+        background-color: whi;
+        width: fit-content;
+        padding: 20px   ;
+        right: 10px;
+        top: 60px;
+        position: absolute;
+        li{
+            margin: 5px 0;
+            a{
+                text-decoration: none;
+                color: $primary;
+                font-size: 20px;
+                font-weight: bold;
+                &:hover{
+                    color: $light-yellow;
+                }
+            }
+        }
+    }
+}
 
   .dropdown-menu.show {
     display: block;
@@ -90,8 +116,13 @@
   }
 
   .nav-icons {
+    width: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .nav-icon-item {
+    color:#000;
   }

@@ -1,7 +1,7 @@
 class CreateEvents < ActiveRecord::Migration[7.1]
   def change
     create_table :events do |t|
-      t.refrences :club, null: false, foreign_key: true
+      t.references :club, null: false, foreign_key: true
       t.string :event_name
       t.string :description
       t.string :location

@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_30_135816) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_31_105309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "club_categories", force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_club_categories_on_category_id"
+    t.index ["club_id"], name: "index_club_categories_on_club_id"
+  end
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -25,6 +41,34 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_135816) do
     t.index ["owner_id"], name: "index_clubs_on_owner_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "club_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["role_id"], name: "index_memberships_on_role_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id", null: false
@@ -33,6 +77,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_135816) do
     t.datetime "updated_at", null: false
     t.index ["club_id"], name: "index_posts_on_club_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_interests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "interest_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interest_id"], name: "index_user_interests_on_interest_id"
+    t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,7 +109,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_135816) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "club_categories", "categories"
+  add_foreign_key "club_categories", "clubs"
   add_foreign_key "clubs", "users", column: "owner_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "memberships", "clubs"
+  add_foreign_key "memberships", "roles"
+  add_foreign_key "memberships", "users"
   add_foreign_key "posts", "clubs"
   add_foreign_key "posts", "users"
+  add_foreign_key "user_interests", "interests"
+  add_foreign_key "user_interests", "users"
 end

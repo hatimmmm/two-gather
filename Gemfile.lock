@@ -81,7 +81,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.6)
     bindex (0.8.1)
-    bootsnap (1.17.1)
+    bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.40.0)
@@ -111,11 +111,8 @@ GEM
     error_highlight (0.6.0)
     erubi (1.12.0)
     ffi (1.16.3)
-<<<<<<< HEAD
-=======
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
->>>>>>> f4ac46cf49c8c9bdae1ce77c48ccd6563c37d126
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -175,7 +172,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (3.0.8)
+    rack (3.0.9)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -224,7 +221,6 @@ GEM
     rexml (3.2.6)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-<<<<<<< HEAD
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -235,10 +231,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-=======
-    sassc (2.4.0)
-      ffi (~> 1.9)
->>>>>>> f4ac46cf49c8c9bdae1ce77c48ccd6563c37d126
     selenium-webdriver (4.17.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)

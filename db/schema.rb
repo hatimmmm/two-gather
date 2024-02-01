@@ -51,6 +51,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_105309) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.string "event_name"
+    t.string "description"
+    t.string "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_events_on_club_id"
+  end
+
   create_table "interests", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -102,7 +114,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_105309) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.text "bio"
     t.string "profile_picture", default: "https://i.imgflip.com/1i34wa.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -114,6 +127,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_105309) do
   add_foreign_key "clubs", "users", column: "owner_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "clubs"
   add_foreign_key "memberships", "clubs"
   add_foreign_key "memberships", "roles"
   add_foreign_key "memberships", "users"

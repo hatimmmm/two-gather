@@ -1,4 +1,4 @@
-class Categorie < ApplicationRecord
-  has_many :clubs, through: :club_categories
-  has_many :club_categories
+class Category < ApplicationRecord
+  has_many :clubs, through: :club_category
+  has_many :club_category
 end

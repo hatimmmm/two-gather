@@ -1,6 +1,6 @@
-class CreateClubCategories < ActiveRecord::Migration[7.1]
+class CreateClubCategory < ActiveRecord::Migration[7.1]
   def change
-    create_table :club_categories do |t|
+    create_table :club_category do |t|
       t.references :club, null: false, foreign_key: true
       t.references :category, null: false, foreign_key: true
       t.timestamps

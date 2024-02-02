@@ -192,7 +192,7 @@ Post.create({
               content: "Hey guys. I am also human. I enjoy regular everyday things
               like photosynthesis and throwing ball.",
               user_id: 2,
-              club_id: 1
+              club_id: 3
             })
 
 Post.create({
@@ -342,4 +342,23 @@ puts "#{Category.count} categories created"
 ClubCategory.create!({
                       club_id: 1,
                       category_id:1
+                    })
+
+ClubCategory.create!({
+                      club_id: 2,
+                      category_id:2
+                    })
+
+ClubCategory.create!({
+                      club_id: 3,
+                      category_id:3
+                    })
+
+ClubCategory.create!({
+                      club_id: 2,
+                      category_id:3
+})
+ClubCategory.create!({
+                      club_id: 1,
+                      category_id:2
                     })

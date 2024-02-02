@@ -1,0 +1,54 @@
+<div>
+  <div class="club-container">
+    <h1> <!--category-name --> </h1>
+    <h3> <!-- category-info --></h3>
+    <div class="club-cards">
+      <% @categories.each do |category|%>
+      <% category.clubs.each do |club|%>
+      <div class="card">
+        <div class="fond-card">
+          <i class="fa-solid fa-ellipsis"></i>
+          <i class="fa-regular fa-heart"></i>
+          <div class="inner-card">
+            <div class="club-cover-img"></div>
+            <h2 id="title">  <%= club.name %> </h2>
+            <h4 id="description"><%= club.description %></h3>
+            <div class="buttons">
+              <button class="join"></button>
+              <button class="message"></button>
+              <i class="fa-regular fa-calendar-days"></i>
+            <div class="availability">
+              <div class="created-on"></div>
+              <div class="members"> <i class="fa-regular fa-user"></i><!-- 9/15 --></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %>
+     <% end %>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="categories">
+      <% @category.each do |category| %>
+        <div class="checkbox-wrapper-58">
+          <p><%= category.name %></p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="date"></div>
+      <% end %>
+  </div>
+</div>
+
+
+
+
+<!--
+<% @category.each do |category| %>
+  <%= category.club %>
+  <% end %> -->

@@ -1,50 +1,50 @@
 class CategoriesController < ApplicationController
-  before_action :set_categorie, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categorie = Categorie.all
+    @categories = Category.all
   end
 
   def new
-    @categorie = Categorie.new
+    @category = Category.new
   end
 
   def create
-    @categorie = Categorie.new(categorie_params)
-    @categorie.save
-    redirect_to categorie_path(@categorie)
+    @category = Category.new(category_params)
+    @category.save
+    redirect_to category_path(@category)
   end
 
   def show
   end
 
   def edit
-    render :edit_categorie
+    render :edit_category
   end
 
   def update
-    if @categorie.update(categorie_params)
+    if @category.update(category_params)
       # Successful update
-      redirect_to @categorie, notice: 'The category was successfully updated.'
+      redirect_to @category, notice: 'The category was successfully updated.'
     else
       # Validation errors or other issues
-      render :edit_categorie
+      render :edit_category
     end
   end
 
   def destroy
-    @categorie.destroy
-    redirect_to categorie_path
+    @category.destroy
+    redirect_to category_path
   end
 
   private
 
-  def categorie_params
-    params.require(:categorie).permit(:name, :description)
+  def category_params
+    params.require(:category).permit(:name, :description)
   end
 
-  def set_categorie
-    @categorie = categorie.find(params[:id])
+  def set_category
+    @category = category.find(params[:id])
   end
 
 end

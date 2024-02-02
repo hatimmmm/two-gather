@@ -1,0 +1,28 @@
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+.club-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1285px;
+  height: 1803;
+}
+
+.fond-card{
+  background-color: #F77F00;
+  border-color: black;
+}
+
+.card{
+  background-color: #FCBF49;
+}
+
+.join{
+  color: #F77F00;
+}

@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :memberships
   has_many :clubs, through: :memberships
-  has_many :owned_clubs, class_name: 'Club', foreign_key: 'owner_id'
+  has_many :owned_clubs, class_name: "Club", foreign_key: "owner_id"
 
   has_many :posts
   has_many :comments
@@ -19,5 +19,4 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :bio, length: { maximum: 200 }
-
 end

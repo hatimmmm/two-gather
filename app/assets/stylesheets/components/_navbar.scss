@@ -1,91 +1,104 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .container {
-    width: 100vw;
-    margin: 0;
-  }
-  
-  #avatar {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-  }
-  
-  nav {
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  border: solid 3px $primary;
+
+  img {
     width: 100%;
-    height: 5%;
-    background-color: #F77F00;
-    padding: 2rem 0;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    position: fixed;
-    top: 0;
-    z-index: 10;
+  }
+}
+
+nav {
+  width: 100%;
+  height: 40px;
+  background-color: #f77f00;
+  padding: 1.8rem 3rem;
+  top: 0;
+  border-bottom: solid 3px $primary;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.3);
+
+  ul {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid black;
+    list-style: none;
+    padding: 0 2rem;
+    height: 100%;
+    width: 100%;
   }
-  
-  
-  .nav-links a {
-    margin-right: 10px;
+
+  .logo {
+    width: 100px;
+    img {
+      width: 100%;
+    }
   }
-  
-  nav a {
-    text-decoration: none;
-    color: #000;
-  }
-  
-  .search {
-    border-radius: 5px;
-  }
-  
-  
-  .search-bar input[type="search"] {
-    background: transparent;
-    border: none;
-    /* width: 100%;Adjust this value as needed */
-  }
-  
-  nav .container {
-    /* display: flex;
-    flex-direction: row;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-right: 2rem;
+}
+
+nav a {
+  margin-right: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: $primary;
+}
+
+.search {
+  border-radius: 5px;
+}
+
+.search-bar {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 3px $primary;
+  height: 40px;
+  padding: 0 0 0 1rem;
+  /* width: 100px; */
+}
+
+.search-bar input[type="search"] {
+  background: transparent;
+  width: 80%;
+  height: 100%;
+  font-size: 0.9rem;
+  border: none;
+  outline: none;
+  color: $primary;
+}
+
+.nav-icons {
+  width: 7%;
+  color: $primary;
+  font-size: 25px;
+  div {
+    display: flex;
     justify-content: space-between;
-    align-items: center; */
   }
-  
-  .search-bar {
-    background-color: white;
-    border-radius: 5px;
-    padding: 0.6rem 1rem;
-    /* width: 100px; */
-  }
-  
-  .search-bar input[type="search"]{
-    background: transparent;
-    width: 20vw;
-    margin-left: 1rem;
-    font-size: 0.9rem;
-    color: black;
-  }
-  
-  
-  .dropdown-menu {
-    /* other styles for the dropdown menu */
-  }
-  
-  .dropdown-menu.show {
-    display: block;
-  }
-  
-  .hide {
-    display: none;
-  }
-  
+}
+
+.dropdown-menu {
+  /* other styles for the dropdown menu */
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.logout {
+  width: fit-content;
+}

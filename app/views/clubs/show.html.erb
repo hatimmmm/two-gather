@@ -1,0 +1,124 @@
+<div class="club-container" data-controller="club">
+  <div class="sidebar">
+    <div class="event">
+      <div class="title">
+        <p>Upcoming Event</p>
+      </div>
+      <div class="event-info">
+        <div class="date">
+          <i class="fa-regular fa-calendar"></i>
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="title">
+        <p>Upcoming Event</p>
+      </div>
+      <div class="event-info">
+        <div class="date">
+          <i class="fa-regular fa-calendar"></i>
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="banner">
+      <%= image_tag(@club.image_url)%>
+    </div>
+    <div class="header">
+      <div class="info">
+        <div class="title">
+          <p><%=@club.name%></p>
+        </div>
+        <div class="privacy">
+          <%if @club.public%>
+            <i class="fa-solid fa-earth-europe"></i>
+            <p>Public club</p>
+          <%else%>
+            <i class="fa-solid fa-lock"></i>
+            <p>Private club</p>
+          <%end%>
+        </div>
+        <div class="members">
+          <i class="fa-solid fa-user-group"></i>
+          <p>20 Members</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <a href="" class="button add-post" data-action="click->club#triggerModal">Post</a>
+        <a href="" class="button leave">Leave</a>
+      </div>
+    </div>
+    <div class="feed">
+      <div class="about">
+        <div class="title">
+          <p>About</p>
+        </div>
+        <div class="description">
+          <p>
+            <%= @club.description%>
+          </p>
+        </div>
+        <div class="category">
+          <i class="fa-solid fa-tag"></i>
+          <% @club.categories.each do |category|%>
+            <p><%= category.name%></p>
+          <%end%>
+        </div>
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>Casablanca</p>
+        </div>
+      </div>
+      <div class="posts">
+        <% @posts.each do |post|%>
+          <div class="post">
+            <div class="author">
+              <div class="avatar">
+                <%= image_tag( @club.owner.profile_picture)%>
+              </div>
+              <div class="name">
+                <p> <%= @club.owner.first_name%> <%= @club.owner.last_name%></p>
+              </div>
+            </div>
+            <div class="content">
+              <p>
+                <%= post.content%>
+              </p>
+              <div class="post-img">
+                <%= image_tag("firepunch.jpg")%>
+              </div>
+            </div>
+            <div  class="comments">
+              <i class="fa-solid fa-message"></i>
+              <a href="#">Comments</a>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <!-- modal -->
+  <div class="modal hide" data-club-target="modal">
+    <article class="modal-container">
+      <header class="modal-container-header">
+        <h1 class="modal-container-title">
+          Add post
+        </h1>
+      </header>
+      <section class="modal-container-body rtf">
+        <%= simple_form_for @post do |f| %>
+          <%= f.input :club_id, as: :hidden , input_html: {value: @club.id}%>
+          <%= f.label :content %>
+          <%= f.text_area :content %>
+          <%= f.submit "Create Post",class: "button is-primary" %>
+        <% end %>
+      </section>
+      <footer class="modal-container-footer">
+        <button class="button is-ghost" data-action="click->club#triggerModal">Decline</button>
+      </footer>
+    </article>
+  </div>
+</div>

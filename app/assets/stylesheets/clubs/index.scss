@@ -1,0 +1,153 @@
+.clubs-container {
+  width: 100%;
+  padding: 0 70px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: fit-content;
+}
+
+.clubs-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.clubs-header {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary;
+}
+
+.clubs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-content: start;
+  width: 100%;
+  height: fit-content;
+  margin-right: 20px;
+}
+
+.club-card {
+  width: 100%;
+  height: 330px;
+  border: solid 3px $primary;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
+  background-color: $orange;
+  margin-right: 20px;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 5px;
+    color: $light;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 90%;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: $yellow;
+    border-radius: 10px;
+
+    .card-image {
+      height: 50%;
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .card-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 20%;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      background-color: $yellow;
+      border-radius: 10px;
+      .card-title {
+        font-size: 13px;
+        font-weight: 400;
+        margin-bottom: 5px;
+        a {
+          text-decoration: none;
+          color: $primary;
+        }
+      }
+      .card-category {
+        font-size: 12px;
+        font-weight: 500;
+        color: $secondary;
+      }
+    }
+
+    .card-buttons {
+      height: fit-content;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      font-size: 13px;
+      .main {
+        background-color: $orange;
+        padding: 5px;
+        width: 47%;
+      }
+      .secondary {
+        background-color: $light-yellow;
+        padding: 5px;
+        width: 47%;
+      }
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      font-size: 12px;
+      color: $secondary;
+      font-weight: 600;
+    }
+  }
+}
+.clubs-sidebar {
+  width: 20%;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: $light;
+  border: solid 3px $primary;
+  border-radius: 10px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
+
+  .chackbox {
+    margin: 10px;
+  }
+}

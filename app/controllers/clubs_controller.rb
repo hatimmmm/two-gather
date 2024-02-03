@@ -3,6 +3,7 @@ class ClubsController < ApplicationController
 
   def index
     @clubs = Club.all
+    @categories = Category.all
   end
 
   def new
@@ -16,6 +17,9 @@ class ClubsController < ApplicationController
   end
 
   def show
+    @club = Club.find(params[:id])
+    @posts = @club.posts
+    @post = Post.new
   end
 
   def edit

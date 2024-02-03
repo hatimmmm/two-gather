@@ -7,4 +7,6 @@ class Club < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :memberships, dependent: :destroy
+  has_many :club_categories
+  has_many :categories, through: :club_categories
 end

@@ -1,0 +1,86 @@
+.login-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 100px;
+
+  .login-form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 3px $primary;
+    border-radius: 10px;
+    margin: 0 20px 0 0;
+    background-color: $light;
+    box-shadow: 1px 1px 0 0 $primary, 2px 2px 0 0 $primary, 3px 3px 0 0 $primary,
+      4px 4px 0 0 $primary;
+    padding: 50px;
+    color: $primary;
+    form {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 20px;
+
+      .field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        label {
+          font-size: 20px;
+          font-weight: 500;
+          color: $primary;
+        }
+      }
+      .form-input {
+        width: 100%;
+        outline: none;
+        height: 40px;
+        border: solid 3px $primary;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  .side-panel {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $yellow;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border: solid 3px $orange;
+    overflow: hidden;
+    box-shadow: 1px 1px 0 0 $orange, 2px 2px 0 0 $orange, 3px 3px 0 0 $orange,
+      4px 4px 0 0 $orange;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .login {
+    background-color: $orange;
+    margin: 20px;
+    padding: 10px 40px;
+  }
+}

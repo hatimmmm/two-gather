@@ -77,3 +77,5 @@ gem "sass-rails"
 gem "simple_form"
 
 gem "dotenv-rails"
+
+gem "cloudinary"

@@ -77,7 +77,7 @@
           <div class="post">
             <div class="author">
               <div class="avatar">
-                <%= image_tag( @club.owner.profile_picture)%>
+                <%= image_tag(post.user.profile_picture)%>
               </div>
               <div class="name">
                 <p> <%= @club.owner.first_name%> <%= @club.owner.last_name%></p>
@@ -87,9 +87,11 @@
               <p>
                 <%= post.content%>
               </p>
-              <div class="post-img">
-                <%= image_tag("firepunch.jpg")%>
-              </div>
+              <% if post.photo.attached? %>
+                <div class="post-img">
+                  <%= cl_image_tag post.photo.key %>
+                </div>
+              <% end %>
             </div>
             <div  class="comments">
               <i class="fa-solid fa-message"></i>
@@ -102,23 +104,24 @@
   </div>
   <!-- modal -->
   <div class="modal hide" data-club-target="modal">
-    <article class="modal-container">
-      <header class="modal-container-header">
+    <div class="modal-container">
+      <div class="modal-container-header">
         <h1 class="modal-container-title">
-          Add post
+          Create a Post
         </h1>
-      </header>
-      <section class="modal-container-body rtf">
+      </div>
+      <div class="modal-container-body ">
         <%= simple_form_for @post do |f| %>
-          <%= f.input :club_id, as: :hidden , input_html: {value: @club.id}%>
+          <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
           <%= f.label :content %>
-          <%= f.text_area :content %>
-          <%= f.submit "Create Post",class: "button is-primary" %>
+          <%= f.text_area :content, class: "text-area" %>
+          <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
+          <div class="modal-container-footer">
+            <%= f.submit "Create Post",class: "button main" %>
+            <button class="button secondary" data-action="click->club#triggerModal">Close</button>
+          </div>
         <% end %>
-      </section>
-      <footer class="modal-container-footer">
-        <button class="button is-ghost" data-action="click->club#triggerModal">Decline</button>
-      </footer>
-    </article>
+      </div>
+    </div>
   </div>
 </div>

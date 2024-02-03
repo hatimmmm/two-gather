@@ -9,6 +9,17 @@
     2px 2px 0 0 $primary, 3px 3px 0 0 $primary, 4px 4px 0 0 $primary;
   text-decoration: none;
   color: $primary;
+
+  &.main {
+    background-color: $orange;
+    padding: 5px;
+    width: 47%;
+  }
+  &.secondary {
+    background-color: $light-yellow;
+    padding: 5px;
+    width: 47%;
+  }
 }
 .button:hover {
   color: #444;

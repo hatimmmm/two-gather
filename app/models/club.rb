@@ -1,8 +1,8 @@
 class Club < ApplicationRecord
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :public, inclusion: { in: [true, false] }
-  belongs_to :owner, class_name: "User"
+  # validates :name, presence: true
+  # validates :description, presence: true
+  # validates :public, inclusion: { in: [true, false] }
+  # belongs_to :owner, class_name: "User", foreign_key: "owner_id"
   has_many :events, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :memberships, dependent: :destroy

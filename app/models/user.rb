@@ -27,10 +27,11 @@ class User < ApplicationRecord
   end
 
   def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize: "150x150!")
-    else
-      "default_avatar.jpg"
-    end
+    # if avatar.attached?
+    #   avatar.variant(resize: "150x150!")
+    # else
+    #   "default_avatar.jpg"
+    # end
+    
   end
 end

@@ -11,7 +11,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     @post.save
+    redirect_to club_path(@post.club)
   end
 
   def show
@@ -25,11 +27,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :user_id, :club_id)
+    params.require(:post).permit(:content, :user_id, :club_id, :photo)
   end
 
   def set_post
     @post = Post.find(params[:id])
   end
-
 end

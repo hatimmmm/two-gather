@@ -1,0 +1,61 @@
+<div class="clubs-container" data-controller="club">
+  <div class="clubs-header">
+    <h1>Clubs</h1>
+  </div>
+  <div class="clubs-body">
+    <div class="clubs">
+      <% @clubs.each do |club|%>
+        <div class="club-card" data-club-target="clubCard">
+          <div class="card-header">
+            <i class="fa-solid fa-ellipsis"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-image">
+              <%= image_tag(club.image_url)%>
+            </div>
+            <div class="card-info">
+              <div class="card-title">
+                <a href="clubs/<%=club.id%>">
+                  <h3><%=club.name%></h3>
+                </a>
+              </div>
+              <div class="card-category">
+                <%club.categories.each do|category|%>
+                  <p><%=category.name%>, </p>
+                <%end%>
+              </div>
+            </div>
+            <div class="card-buttons">
+              <%if current_user.clubs.exists?(club.id)%>
+                <a href="clubs/<%=club.id%>" class="button main">View</a>
+              <%else%>
+                <a href="" class="button main" data-club-target="joinButton" data-club-id="<%=club.id%>" data-action="click->club#joinClub">Join</a>
+              <%end%>
+              <a href="" class="button secondary">Message</a>
+            </div>
+            <div class="card-footer">
+              <div class="members">10/<%= club.members.count%></div>
+              <div class="members"><%= club.created_at.to_fs(:short)%></div>
+            </div>
+          </div>
+        </div>
+      <% end%>
+    </div>
+    <div class="clubs-sidebar">
+      <div class="clubs-sidebar-header">
+        <h3>Categories</h3>
+      </div>
+      <div class="categories">
+        <% @categories.each do |category|%>
+          <div class="chackbox">
+            <div class="checkbox-rect2">
+              <input type="checkbox" id="<%= category.name%>" name="<%= category.name%>">
+              <label for="<%= category.name%>"><%= category.name%></label>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

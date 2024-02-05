@@ -1,0 +1,137 @@
+<div class="club-container" data-controller="club">
+  <div class="sidebar">
+    <div class="event">
+      <div class="title">
+        <p>Upcoming Event</p>
+      </div>
+      <div class="event-info">
+        <div class="date">
+          <i class="fa-regular fa-calendar"></i>
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="title">
+        <p>Upcoming Event</p>
+      </div>
+      <div class="event-info">
+        <div class="date">
+          <i class="fa-regular fa-calendar"></i>
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="banner">
+      <%= image_tag(@club.image_url)%>
+    </div>
+    <div class="header">
+      <div class="info">
+        <div class="title">
+          <p><%=@club.name%></p>
+        </div>
+        <div class="privacy">
+          <%if @club.public%>
+            <i class="fa-solid fa-earth-europe"></i>
+            <p>Public club</p>
+          <%else%>
+            <i class="fa-solid fa-lock"></i>
+            <p>Private club</p>
+          <%end%>
+        </div>
+        <div class="members">
+          <i class="fa-solid fa-user-group"></i>
+          <p>20 Members</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <%if current_user.clubs.exists?(@club.id)%>
+          <a href="" class="button add-post" data-action="click->club#triggerModal">Post</a>
+          <%= button_to "Leave" ,@membership, method: :delete, class: "button leave" %>
+        <%else%>
+          <a href="" class="button main" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a>        <%end%>
+      </div>
+    </div>
+    <div class="feed">
+      <div class="about">
+        <div class="title">
+          <p>About</p>
+        </div>
+        <div class="description">
+          <p>
+            <%= @club.description%>
+          </p>
+        </div>
+        <div class="category">
+          <i class="fa-solid fa-tag"></i>
+          <% @club.categories.each do |category|%>
+            <p><%= category.name%></p>
+          <%end%>
+        </div>
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>Casablanca</p>
+        </div>
+      </div>
+      <%if current_user.clubs.exists?(@club.id)%>
+        <div class="posts">
+          <% @posts.each do |post|%>
+            <div class="post">
+              <div class="author">
+                <div class="avatar">
+                  <%= image_tag(post.user.avatar_thumbnail)%>
+                </div>
+                <div class="name">
+                  <p> <%= post.user.full_name%></p>
+                </div>
+              </div>
+              <div class="content">
+                <p>
+                  <%= post.content%>
+                </p>
+                <% if post.photo.attached? %>
+                  <div class="post-img">
+                    <%= cl_image_tag post.photo.key %>
+                  </div>
+                <% end %>
+              </div>
+              <div  class="comments">
+                <i class="fa-solid fa-message"></i>
+                <a href="#">Comments</a>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      <%else%>
+        <div class="private">
+          <h2>This is a private club</h2>
+          <div><i class="fa-solid fa-lock"></i></div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+  <!-- modal -->
+  <div class="modal hide" data-club-target="modal">
+    <div class="modal-container">
+      <div class="modal-container-header">
+        <h1 class="modal-container-title">
+          Create a Post
+        </h1>
+      </div>
+      <div class="modal-container-body ">
+        <%= simple_form_for @post do |f| %>
+          <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
+          <%= f.label :content %>
+          <%= f.text_area :content, class: "text-area" %>
+          <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
+          <div class="modal-container-footer">
+            <%= f.submit "Create Post",class: "button main" %>
+            <button class="button secondary" data-action="click->club#triggerModal">Close</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

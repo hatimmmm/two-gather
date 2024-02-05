@@ -1,37 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 @import "./config/colors";
 @import "./config/fonts";
 @import "./pages/index";
 @import "./components/navbar";
-$primary: #f00;
-$light-yellow: #f0f;
+@import "./components/button";
+@import "font-awesome";
+@import "clubs/index";
+@import "./components/checkbox";
+@import "./components/modal";
 
-.dropdown-menu{
-  ul{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      list-style: none;
-      border: solid 3px $primary;
-      border-radius: 10px;
-      background-color: whi;
-      width: fit-content;
-      padding: 20px   ;
-      right: 10px;
-      top: 60px;
-      position: absolute;
-      li{
-          margin: 5px 0;
-          a{
-              text-decoration: none;
-              color: $primary;
-              font-size: 20px;
-              font-weight: bold;
-              &:hover{
-                  color: $light-yellow;
-              }
-          }
-      }
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+body {
+  background-color: $background;
 }

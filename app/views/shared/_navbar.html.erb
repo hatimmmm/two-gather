@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <nav>
     <h2>2Gather</h2>
@@ -34,3 +35,55 @@
 
 <%# <i class="fa-regular fa-comment"></i> %>
 <%# <i class="fa-regular fa-bell"></i> %>
+=======
+  <nav data-controller="navbar">
+  <ul>
+    <li>
+      <div class="logo">
+        <a href="/">
+          <%=image_tag("2gather_logo.png") %>
+        </a>
+      </div>
+    </li>
+    <%if user_signed_in?%>
+      <li>
+        <div class="nav-links" >
+          <a href="/">Home</a>
+          <a href="/clubs">Clubs</a>
+          <a href="">Recommendations</a>
+        </div>
+      </li>
+      <li>
+        <div class="search-bar">
+          <input type="search" placeholder="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </li>
+      <li class="nav-icons">
+        <div >
+          <i class="fa-solid fa-message"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </li>
+      <li>
+        <div class="dropdown">
+          <div class="avatar" data-action="click->navbar#toggleMenu">
+            <%= image_tag current_user.avatar_thumbnail %>
+          </div>
+          <div id="drop" class="dropdown-menu hide" aria-labelledby="dropdownMenuButton" data-navbar-target="menu">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a href="">My clubs</a>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
+        </div>
+      </li>
+    <%else%>
+      <li>
+        <%= link_to "Login", new_user_session_path, class: "nav-link text-light" %>
+      </li>
+    <%end%>
+  </ul>
+</nav>
+<%# <i class="fa-regular fa-comment"></i> %>
+<%# <i class="fa-regular fa-bell"></i> %>
+>>>>>>> b951563bb423838b227b3e9f45a49e3a8123772b

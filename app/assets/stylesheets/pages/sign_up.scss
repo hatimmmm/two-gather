@@ -1,21 +1,21 @@
-.login-container {
-  height: 100vh;
+.signup-container {
+  height: fit-content;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   padding: 50px 100px;
 
-  .login-form {
+  .signup-form {
     width: 50%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: solid 3px $primary;
     border-radius: 10px;
-
+    margin: 0 20px 0 0;
     background-color: $light;
     box-shadow: 1px 1px 0 0 $primary, 2px 2px 0 0 $primary, 3px 3px 0 0 $primary,
       4px 4px 0 0 $primary;
@@ -37,7 +37,6 @@
         align-items: start;
         justify-content: center;
         margin-bottom: 20px;
-
         label {
           font-size: 20px;
           font-weight: 500;
@@ -50,13 +49,14 @@
         height: 40px;
         border: solid 3px $primary;
         border-radius: 10px;
-        margin-bottom: 10px;
         padding: 0 10px;
       }
     }
   }
 
   .side-panel {
+    position: sticky;
+    top: 20px;
     width: 50%;
     height: 100%;
     display: flex;
@@ -70,7 +70,6 @@
     overflow: hidden;
     box-shadow: 1px 1px 0 0 $orange, 2px 2px 0 0 $orange, 3px 3px 0 0 $orange,
       4px 4px 0 0 $orange;
-    margin-right: 20px;
 
     img {
       width: 100%;
@@ -79,9 +78,14 @@
     }
   }
 
-  .login {
+  .signup {
     background-color: $orange;
     margin: 20px;
     padding: 10px 40px;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }

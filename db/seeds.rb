@@ -99,6 +99,28 @@ ClubCategory.create({
   category_id: 3,
 })
 
+Role.create({
+  name: "member",
+})
+
+Role.create({
+  name: "admin",
+})
+
+# Membership.create({
+#   user_id: User.first.id,
+#   club_id: Club.first.id,
+#   role_id: Role.first.id,
+# })
+
+# Membership.create({
+#   user_id: User.first.id,
+#   club_id: Club.find(2).id,
+#   role_id: Role.first.id,
+# })
+
 puts "#{Club.count} clubs created"
 puts "#{Category.count} categories created"
 puts "#{ClubCategory.count} ClubCategories created"
+puts "#{Role.count} Roles created"
+puts "#{Membership.count} Memberships created"

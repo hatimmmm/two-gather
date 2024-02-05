@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :clubs
   resources :posts
+  resources :comments
+  resources :memberships, only: [:create, :destroy, :update]
   # Defines the root path route ("/")
   # root "posts#index"
 

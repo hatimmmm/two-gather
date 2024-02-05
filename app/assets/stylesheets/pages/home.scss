@@ -44,7 +44,8 @@
 }
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: fit-content;
 
   .signin {
     background-color: $orange;
@@ -56,5 +57,10 @@
     background-color: $yellow;
     margin: 20px;
     padding: 10px 40px;
+  }
+
+  .main {
+    padding: 10px 40px;
+    font-size: 30px;
   }
 }

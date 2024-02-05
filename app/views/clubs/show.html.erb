@@ -47,8 +47,11 @@
         </div>
       </div>
       <div class="buttons">
-        <a href="" class="button add-post" data-action="click->club#triggerModal">Post</a>
-        <a href="" class="button leave">Leave</a>
+        <%if current_user.clubs.exists?(@club.id)%>
+          <a href="" class="button add-post" data-action="click->club#triggerModal">Post</a>
+          <%= button_to "Leave" ,@membership, method: :delete, class: "button leave" %>
+        <%else%>
+          <a href="" class="button main" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a>        <%end%>
       </div>
     </div>
     <div class="feed">
@@ -72,34 +75,41 @@
           <p>Casablanca</p>
         </div>
       </div>
-      <div class="posts">
-        <% @posts.each do |post|%>
-          <div class="post">
-            <div class="author">
-              <div class="avatar">
-                <%= image_tag(post.user.profile_picture)%>
-              </div>
-              <div class="name">
-                <p> <%= @club.owner.first_name%> <%= @club.owner.last_name%></p>
-              </div>
-            </div>
-            <div class="content">
-              <p>
-                <%= post.content%>
-              </p>
-              <% if post.photo.attached? %>
-                <div class="post-img">
-                  <%= cl_image_tag post.photo.key %>
+      <%if current_user.clubs.exists?(@club.id)%>
+        <div class="posts">
+          <% @posts.each do |post|%>
+            <div class="post">
+              <div class="author">
+                <div class="avatar">
+                  <%= image_tag(post.user.avatar_thumbnail)%>
                 </div>
-              <% end %>
+                <div class="name">
+                  <p> <%= post.user.full_name%></p>
+                </div>
+              </div>
+              <div class="content">
+                <p>
+                  <%= post.content%>
+                </p>
+                <% if post.photo.attached? %>
+                  <div class="post-img">
+                    <%= cl_image_tag post.photo.key %>
+                  </div>
+                <% end %>
+              </div>
+              <div  class="comments">
+                <i class="fa-solid fa-message"></i>
+                <a href="#">Comments</a>
+              </div>
             </div>
-            <div  class="comments">
-              <i class="fa-solid fa-message"></i>
-              <a href="#">Comments</a>
-            </div>
-          </div>
-        <%end%>
-      </div>
+          <%end%>
+        </div>
+      <%else%>
+        <div class="private">
+          <h2>This is a private club</h2>
+          <div><i class="fa-solid fa-lock"></i></div>
+        </div>
+      <%end%>
     </div>
   </div>
   <!-- modal -->

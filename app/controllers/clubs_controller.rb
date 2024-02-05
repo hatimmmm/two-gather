@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
 
   def index
+    clubs = current_user.clubs
     @clubs = Club.all
     @categories = Category.all
   end
@@ -20,6 +21,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @posts = @club.posts
     @post = Post.new
+    @membership = @club.memberships.find_by(user: current_user)
   end
 
   def edit

@@ -5,26 +5,45 @@
   border: solid 3px $primary;
   border-radius: 10px;
   transition: all 0.3s ease-out;
-  box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 $primary,
-    2px 2px 0 0 $primary, 3px 3px 0 0 $primary, 4px 4px 0 0 $primary;
+  box-shadow: inset -2px -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 $primary,
+    2px 2px 0 0 $primary, 3px 3px 0 0 $primary;
   text-decoration: none;
   color: $primary;
+  text-align: center;
+  padding: 5px 20px;
+  width: fit-content;
 
   &.main {
     background-color: $orange;
-    padding: 5px;
-    width: 47%;
   }
   &.secondary {
     background-color: $light-yellow;
-    padding: 5px;
-    width: 47%;
+  }
+  &:hover {
+    color: #444;
+    transform: translate(-1px, -1px);
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 $primary,
+      2px 2px 0 0 $primary, 3px 3px 0 0 $primary, 4px 4px 0 0 $primary;
+  }
+  &:active {
+    color: #222;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 $primary;
+    transform: translate(3px, 3px);
   }
 }
-.button:hover {
-  color: #444;
+
+.text-button {
+  text-decoration: none;
+  color: $primary;
+  font-weight: 600;
 }
-.button:active {
-  color: #222;
-  box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 $primary;
+
+input[type="file"]::file-selector-button {
+  background: none;
+  border: dashed 3px $primary;
+  border-radius: 10px;
+  padding: 5px 20px;
+  font-size: 13px;
+  color: $primary;
+  cursor: pointer;
 }

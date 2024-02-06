@@ -1,66 +1,144 @@
-.profile-container {
-  margin-top: 50px;
+.container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  background-color: whitesmoke;
+  padding:0 50px;
 }
 
-.pg {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-}
-
-.bio {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px;
-  border: solid 1px black;
-  padding: 10px;
-  margin-bottom: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  background-color: lightgray;
-}
-
-.underline{
-  text-decoration: underline;
-}
-
-.section2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.calendar{
-  background-color: lightgray;
-  border: solid 1px black;
-}
-
-.partners{
-  background-color: lightgray;
-  border: solid 1px black;
-}
-
-.clubs {
-  background-color: lightgray;
-  border: solid 1px black;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 5px;
-  border: solid 1px black;
-  padding: 10px;
+.banner {
   width: 100%;
+  height: 40%;
+  padding: auto;
+  overflow: hidden;
 }
 
-.content img {
-  height: auto;
-  border-radius: 5px;
+.profile-info {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  height: 100%;
+
+  .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+
+    h6 {
+      margin-top: 5px;
+    }
+    .stat1, .stat2, .stat3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      margin-right: 10px;
+
+      .member-stat, .admin-stat, .event-stat {
+        text-align: center;
+      }
+    }
+  }
+
+  .info-section {
+    margin-top: 100px;
+
+
+  }
+
+}
+
+.cover-pic {
+  width: 100%;
+  object-fit: cover;
+  background-color: #f0f0f0;
+  padding: auto;
+}
+
+
+.left {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  .bio{
+    color: $secondary;
+  }
+
+  .info-section h5 {
+    font-size: 1.3em;
+    font-family: sans-serif;
+  }
+
+  .description {
+    color: #C7C8CC;
+    font-size: 1.1em;
+    font-family: sans-serif;
+  }
+
+  .profile {
+    position: absolute;
+    top: -100px;
+    height: 200px;
+    width: 200px;
+  }
+}
+
+.right {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    font-family: sans-serif;
+  }
+
+  .tabs__label {
+    padding: 10px 16px;
+    cursor: pointer;
+  }
+
+  .tabs__radio {
+    display: none;
+  }
+
+  .tabs__content {
+    order: 1;
+    width: 100%;
+    border-bottom: 3px solid black;
+    line-height: 1.5;
+    font-size: 0.9em;
+    display: none;
+  }
+
+  .tabs__radio:checked + .tabs__label {
+    font-weight: bold;
+    color: #009578;
+    border-bottom: 2px solid #009578;
+  }
+
+  .tabs__radio:checked + .tabs__label + .tabs__content {
+    display: initial;
+  }
+
 }

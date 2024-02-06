@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     @posts = @club.posts
     @post = Post.new
   end
+
+  def profile
+  end
 end

@@ -78,14 +78,22 @@
       <%if current_user.clubs.exists?(@club.id)%>
         <div class="posts">
           <% @posts.each do |post|%>
-            <div class="post">
-              <div class="author">
-                <div class="avatar">
-                  <%= image_tag(post.user.avatar_thumbnail)%>
+            <div class="post" data-controller="post">
+              <div class="post-header">
+                <div class="menu hide" data-post-target="menu">
+                  <%if post.user.id == current_user.id || @club.owner.id == current_user.id%>
+                    <%= button_to "delete", post, method: :delete, class: "delete"%>
+                  <%end%>
                 </div>
-                <div class="name">
-                  <p> <%= post.user.full_name%></p>
+                <div class="author">
+                  <div class="avatar">
+                    <%= cl_image_tag post.user.avatar.key if post.user.avatar.attached? %>
+                  </div>
+                  <div class="name">
+                    <p> <%= post.user.full_name%></p>
+                  </div>
                 </div>
+                <i class="fa-solid fa-ellipsis trigger" data-action="click->post#triggerDropdown" data-post-target="trigger"></i>
               </div>
               <div class="content">
                 <p>
@@ -93,9 +101,9 @@
                 </p>
                 <% if post.photo.attached? %>
                   <div class="post-img">
-                    <%= cl_image_tag post.photo.key %>
+                    <%=cl_image_tag(post.photo.key) %>
                   </div>
-                <% end %>
+                <%end%>
               </div>
               <div  class="comments">
                 <i class="fa-solid fa-message"></i>
@@ -113,7 +121,7 @@
     </div>
   </div>
   <!-- modal -->
-  <div class="modal hide" data-club-target="modal">
+  <div class="modal hide" data-club-target="postModal">
     <div class="modal-container">
       <div class="modal-container-header">
         <h1 class="modal-container-title">
@@ -125,6 +133,29 @@
           <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
           <%= f.label :content %>
           <%= f.text_area :content, class: "text-area" %>
+          <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
+          <div class="modal-container-footer">
+            <%= f.submit "Create Post",class: "button main" %>
+            <button class="button secondary" data-action="click->club#triggerModal">Close</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- create event modal -->
+  <div class="modal hide" data-club-target="eventModal">
+    <div class="modal-container">
+      <div class="modal-container-header">
+        <h1 class="modal-container-title">
+          Create a Post
+        </h1>
+      </div>
+      <div class="modal-container-body ">
+        <%= simple_form_for @event do |f| %>
+          <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
+          <%= f.text :event_name %>
+          <%= f.text_area :description, class: "text-area" %>
+          <%= f.text :location, class: "text-area" %>
           <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
           <div class="modal-container-footer">
             <%= f.submit "Create Post",class: "button main" %>

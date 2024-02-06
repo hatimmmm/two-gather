@@ -3,7 +3,7 @@ class ClubsController < ApplicationController
 
   def index
     clubs = current_user.clubs
-    @clubs = Club.all
+    @clubs = Club.all.reject { |club| club.owner_id == current_user.id }
     @categories = Category.all
   end
 

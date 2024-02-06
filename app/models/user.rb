@@ -26,11 +26,11 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize: "150x150!")
-    else
-      "default_avatar.jpg"
-    end
+  def member_of?(club)
+    self.clubs.include?(club)
+  end
+
+  def owner_of?(club)
+    club.owner == self
   end
 end

@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    redirect_to club_path(@post.club)
   end
 
   private

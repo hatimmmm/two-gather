@@ -149,3 +149,13 @@
     width: 40%;
   }
 }
+
+.delete {
+  color: $red;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: none;
+}

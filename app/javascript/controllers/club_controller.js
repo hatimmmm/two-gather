@@ -3,9 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 // Connects to data-controller="club"
 export default class extends Controller {
   static targets = ["post", "leave", "modal", "form", "clubCard", "joinButton"];
-  connect() {
-    console.log("Connected to club controller");
-  }
+  connect() {}
 
   triggerModal(e) {
     // const modal = document.getElementById("postModal");

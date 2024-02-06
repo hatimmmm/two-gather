@@ -1,0 +1,105 @@
+h2 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+.edit_form {
+  overflow: auto;
+  height: 80vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 200px;
+  margin-left: 200px;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+
+  .field {
+    width: 45%; /* less than 50% to leave some space between fields */
+    display: flex;
+    flex-direction: column;
+    margin-inline: 5px;
+    border-radius: 5px;
+  }
+
+}
+
+.field-bio {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 5px;
+  width: 100%;
+}
+
+#user_bio {
+  height: 20vh;
+}
+
+#user_first_name, #user_last_name {
+  height: 30px;
+}
+
+#user_password, #user_password_confirmation, #user_current_password {
+  height: 30px;
+}
+
+.actions input {
+  background-color: blue;
+  color: $light;
+  font-weight: 500;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+
+}
+
+.cancel button {
+  background-color: $red;
+  color: $light;
+  font-weight: 500;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.choice {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.back button {
+  width: 80px;
+  height: 30px;
+  background-color: $primary;
+  color: $light;
+  border-radius: 5px;
+}
+
+.back button a {
+  background-color: $primary;
+  color: $light;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cancelling {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}

@@ -2,7 +2,15 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="club"
 export default class extends Controller {
-  static targets = ["post", "leave", "modal", "form", "clubCard", "joinButton"];
+  static targets = [
+    "post",
+    "leave",
+    "modal",
+    "form",
+    "clubCard",
+    "joinButton",
+    "eventModal",
+  ];
   connect() {}
 
   triggerModal(e) {
@@ -10,6 +18,13 @@ export default class extends Controller {
     // modal.classList.add("is-active");
     e.preventDefault();
     this.modalTarget.classList.toggle("hide");
+  }
+
+  triggerEventModal(e) {
+    // const modal = document.getElementById("postModal");
+    // modal.classList.add("is-active");
+    e.preventDefault();
+    this.eventModalTarget.classList.toggle("hide");
   }
 
   async joinClub(e) {
@@ -32,7 +47,8 @@ export default class extends Controller {
         const result = await response.json();
         if (result.status === "success") {
           console.log("Membership created successfully:", result.membership);
-          e.target.outerHTML = `<a href="clubs/${clubId}" class="button main">View</a>`;
+          window.location.replace("/clubs/" + clubId);
+          // e.target.outerHTML = `<a href="clubs/${clubId}" class="button main">View</a>`;
         } else {
           console.error("Error creating membership:", result.errors);
         }

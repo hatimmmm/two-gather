@@ -1,27 +1,22 @@
 <div class="club-container" data-controller="club">
   <div class="sidebar">
-    <div class="event">
-      <div class="title">
-        <p>Upcoming Event</p>
-      </div>
-      <div class="event-info">
-        <div class="date">
-          <i class="fa-regular fa-calendar"></i>
-          <i class="fa-solid fa-location-dot"></i>
+    <div class="sidebar-header">
+      <h3>Events</h3>
+      <button class="button main" data-action="click->club#triggerEventModal">create</button>
+    </div>
+    <%@events.each do |event|%>
+      <div class="event">
+        <div class="title">
+          <p><%=event.start_date.strftime("%F") %></p>
+        </div>
+        <div class="event-info">
+          <div class="date">
+            <i class="fa-regular fa-calendar" value="<%=event.start_date.strftime("%F") %>" data-controller="datepicker"></i>
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="event">
-      <div class="title">
-        <p>Upcoming Event</p>
-      </div>
-      <div class="event-info">
-        <div class="date">
-          <i class="fa-regular fa-calendar"></i>
-          <i class="fa-solid fa-location-dot"></i>
-        </div>
-      </div>
-    </div>
+    <%end%>
   </div>
   <div class="main">
     <div class="banner">
@@ -43,7 +38,7 @@
         </div>
         <div class="members">
           <i class="fa-solid fa-user-group"></i>
-          <p>20 Members</p>
+          <p><%=@club.users.count%> Members</p>
         </div>
       </div>
       <div class="buttons">
@@ -51,7 +46,7 @@
           <a href="" class="button add-post" data-action="click->club#triggerModal">Post</a>
           <%= button_to "Leave" ,@membership, method: :delete, class: "button leave" %>
         <%else%>
-          <a href="" class="button main" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a>        <%end%>
+          <a href="" class="button main" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a><%end%>
       </div>
     </div>
     <div class="feed">
@@ -147,19 +142,20 @@
     <div class="modal-container">
       <div class="modal-container-header">
         <h1 class="modal-container-title">
-          Create a Post
+          Create an event
         </h1>
       </div>
       <div class="modal-container-body ">
         <%= simple_form_for @event do |f| %>
           <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
-          <%= f.text :event_name %>
-          <%= f.text_area :description, class: "text-area" %>
-          <%= f.text :location, class: "text-area" %>
-          <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
+          <%= f.input :event_name %>
+          <%= f.input :location%>
+          <%= f.input :start_date,as: :string,input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :end_date,as: :string,input_html: { data: { controller: "datepicker" } }%>
+          <%= f.input :description, as: :text, class: "text-area" %>
           <div class="modal-container-footer">
-            <%= f.submit "Create Post",class: "button main" %>
-            <button class="button secondary" data-action="click->club#triggerModal">Close</button>
+            <%= f.submit "Create event",class: "button main" %>
+            <button class="button secondary" data-action="click->club#triggerEventModal">Close</button>
           </div>
         <% end %>
       </div>

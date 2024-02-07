@@ -22,6 +22,8 @@ class ClubsController < ApplicationController
     @posts = @club.posts
     @post = Post.new
     @membership = @club.memberships.find_by(user: current_user)
+    @event = Event.new
+    @events = @club.events
   end
 
   def edit

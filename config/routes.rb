@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root to: "pages#home", as: :home
+  get "about" => "pages#about", as: :about
+  get "profile" => "pages#profile", as: :profile
 
   resources :clubs
   resources :posts

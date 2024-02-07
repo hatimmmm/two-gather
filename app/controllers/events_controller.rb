@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
-    redirect_to event_path(@event)
+    redirect_to club_path(@event.club_id)
   end
 
   def show
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   def update
     if @event.update(event_params)
       # Successful update
-      redirect_to @event, notice: 'The event was successfully updated.'
+      redirect_to @event, notice: "The event was successfully updated."
     else
       # Validation errors or other issues
       render :edit_event

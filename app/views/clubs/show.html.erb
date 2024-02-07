@@ -43,7 +43,7 @@
       </div>
       <div class="buttons">
         <%if current_user.clubs.exists?(@club.id)%>
-          <a href="" class="button add-post" data-action="click->club#triggerModal">Post</a>
+          <a href="" class="button add-post" data-action="click->club#triggerPostModal">Post</a>
           <%= button_to "Leave" ,@membership, method: :delete, class: "button leave" %>
         <%else%>
           <a href="" class="button main" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a><%end%>
@@ -126,8 +126,10 @@
       <div class="modal-container-body ">
         <%= simple_form_for @post do |f| %>
           <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
-          <%= f.label :content %>
-          <%= f.text_area :content, class: "text-area" %>
+          <div class="input">
+            <%= f.label :content %>
+            <%= f.text_area :content, class: "text-area" %>
+          </div>
           <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
           <div class="modal-container-footer">
             <%= f.submit "Create Post",class: "button main" %>

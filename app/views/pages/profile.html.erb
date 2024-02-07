@@ -1,22 +1,24 @@
-<div class="container">
+<div class="profile-container">
   <div class="banner">
     <img class="cover-pic" src="https://t3.ftcdn.net/jpg/01/94/29/16/360_F_194291600_DutFTKjA2YRgDW11EQ6caPojM93Ljmvm.jpg" alt="...">
   </div>
   <div class="profile-info">
     <div class="left">
-      <img class="avatar profile" src="https://t3.ftcdn.net/jpg/01/94/29/16/360_F_194291600_DutFTKjA2YRgDW11EQ6caPojM93Ljmvm.jpg" alt="...">
+      <div class="avatar profile">
+        <%= cl_image_tag(current_user.avatar_url)%>
+      </div>
       <div class="info-section">
-        <h5><em>Username</em></h5>
+        <h5><em><%=current_user.full_name%></em></h5>
         <p class="description">Description</p>
-        <p class="mail">Mail@mail.com</p>
+        <p class="mail"><%=current_user.email%></p>
       </div>
       <div class="stats">
         <div class="stat1">
-          <p class="member-stat">22</p>
+          <p class="member-stat"><%=current_user.member_of_clubs.count%></p>
           <h6>MEMBER</h6>
         </div>
         <div class="stat2">
-          <p class="admin-stat">3</p>
+          <p class="admin-stat"><%=current_user.owned_clubs.count%></p>
           <h6>ADMIN</h6>
         </div>
         <div class="stat3">
@@ -25,7 +27,7 @@
         </div>
       </div>
       <div class="bio">
-        <p>Bio bio bio...</p>
+        <p><%=current_user.bio%></p>
       </div>
       <div class="social-links">
         <a href=""></a>

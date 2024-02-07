@@ -37,7 +37,7 @@
             <%end%>
           </div>
           <div id="drop" class="dropdown-menu hide" aria-labelledby="dropdownMenuButton" data-navbar-target="menu">
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="/profile">Profile</a>
             <a href="">My clubs</a>
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
           </div>

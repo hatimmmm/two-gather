@@ -2,12 +2,11 @@
 @import "./config/colors";
 @import "./config/fonts";
 @import "./pages/index";
-@import "./components/navbar";
-@import "./components/button";
+
 @import "font-awesome";
 @import "clubs/index";
-@import "./components/checkbox";
-@import "./components/modal";
+
+@import "./components/index";
 
 * {
   margin: 0;

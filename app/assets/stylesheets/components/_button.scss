@@ -19,6 +19,9 @@
   &.secondary {
     background-color: $light-yellow;
   }
+  &.delete {
+    background-color: $red;
+  }
   &:hover {
     color: #444;
     transform: translate(-1px, -1px);

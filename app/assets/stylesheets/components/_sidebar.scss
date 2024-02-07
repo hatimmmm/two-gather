@@ -1,0 +1,42 @@
+.sidebar {
+  width: 25%;
+  height: 100vh;
+  border: solid 3px $primary;
+  border-radius: 10px;
+  background-color: $light;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  position: sticky;
+  top: 20px;
+  overflow-y: auto;
+  .sidebar-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: $primary;
+    }
+  }
+  .event {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $primary;
+    background-color: $light-yellow;
+    border: solid 3px $primary;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    box-shadow: $primary 2px 3px 0px, $primary 3px 4px 0px;
+  }
+}

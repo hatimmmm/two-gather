@@ -7,11 +7,12 @@
     <%@events.each do |event|%>
       <div class="event">
         <div class="title">
-          <p><%=event.start_date.strftime("%F") %></p>
+          <p><%=event.event_name %></p>
         </div>
         <div class="event-info">
           <div class="date">
-            <i class="fa-regular fa-calendar" value="<%=event.start_date.strftime("%F") %>" data-controller="datepicker"></i>
+            <a value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker" name="" id="">a</a>
+            <i class="fa-regular fa-calendar" value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker"></i>
             <i class="fa-solid fa-location-dot"></i>
           </div>
         </div>
@@ -101,8 +102,8 @@
                 <%end%>
               </div>
               <div  class="comments">
-                <i class="fa-solid fa-message"></i>
-                <a href="#">Comments</a>
+                <input type="text" data-post-target="comment">
+                <button class="button main" data-action="click->post#addComment">Comment</button>
               </div>
             </div>
           <%end%>
@@ -133,7 +134,7 @@
           <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
           <div class="modal-container-footer">
             <%= f.submit "Create Post",class: "button main" %>
-            <button class="button secondary" data-action="click->club#triggerModal">Close</button>
+            <button class="button secondary" data-action="click->club#triggerPostModal">Close</button>
           </div>
         <% end %>
       </div>
@@ -152,8 +153,8 @@
           <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
           <%= f.input :event_name %>
           <%= f.input :location%>
-          <%= f.input :start_date,as: :string,input_html: { data: { controller: "datepicker" } } %>
-          <%= f.input :end_date,as: :string,input_html: { data: { controller: "datepicker" } }%>
+          <%= f.input :start_time,as: :string,input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :end_time,as: :string,input_html: { data: { controller: "datepicker" } }%>
           <%= f.input :description, as: :text, class: "text-area" %>
           <div class="modal-container-footer">
             <%= f.submit "Create event",class: "button main" %>

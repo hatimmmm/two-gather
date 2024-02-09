@@ -1,0 +1,57 @@
+.simple-calendar {
+  border-radius: 10px;
+  padding: 5px;
+  color: $primary;
+  nav {
+    border-radius: 10px 10px 0 0;
+  }
+  .event {
+  }
+  .day {
+  }
+
+  .wday-0 {
+  }
+  .wday-1 {
+  }
+  .wday-2 {
+  }
+  .wday-3 {
+  }
+  .wday-4 {
+  }
+  .wday-5 {
+  }
+  .wday-6 {
+  }
+
+  .today {
+  }
+  .past {
+  }
+  .future {
+  }
+
+  .start-date {
+  }
+
+  .prev-month {
+  }
+  .next-month {
+  }
+  .current-month {
+  }
+
+  .has-events {
+    background-color: $yellow;
+  }
+  .event {
+    background-color: $light-yellow;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+    .title {
+      font-weight: bold;
+    }
+  }
+}

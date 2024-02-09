@@ -49,4 +49,8 @@ class User < ApplicationRecord
       "https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg"
     end
   end
+
+  def events
+    event = Event.where(club_id: self.clubs.ids)
+  end
 end

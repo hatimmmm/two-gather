@@ -45,7 +45,7 @@
       flex-direction: column;
     }
     .title {
-      font-size: 25px;
+      font-size: 22px;
       font-weight: 700;
       color: $primary;
       margin-bottom: 5px;
@@ -122,12 +122,12 @@
       .category {
         @extend %test;
 
-        font-size: 20px;
+        font-size: 15px;
         margin-bottom: 10px;
       }
       .location {
         @extend %test;
-        font-size: 20px;
+        font-size: 15px;
       }
     }
   }

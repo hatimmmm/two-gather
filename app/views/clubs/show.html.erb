@@ -101,9 +101,28 @@
                   </div>
                 <%end%>
               </div>
-              <div  class="comments">
-                <input type="text" data-post-target="comment">
-                <button class="button main" data-action="click->post#addComment">Comment</button>
+              <div  class="comments-container">
+                <div class="comment-input">
+                  <input type="text" data-post-target="comment">
+                  <button class="button main" data-action="click->post#addComment" data-post="<%=post.id%>">Comment</button>
+                </div>
+                <div class="comments">
+                  <%if post.comments.exists?%>
+                    <% post.comments.each do |comment|%>
+                      <div class="comment">
+                        <div class="avatar">
+                          <%= cl_image_tag comment.user.avatar.key if comment.user.avatar.attached? %>
+                        </div>
+                        <div class="comment-content">
+                          <p class="comment-author"><%= comment.user.full_name%></p>
+                          <p><%= comment.content%></p>
+                        </div>
+                      </div>
+                    <%end%>
+                  <%else%>
+                    <p>No comments yet</p>
+                  <%end%>
+                </div>
               </div>
             </div>
           <%end%>

@@ -1,0 +1,40 @@
+.event-container {
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  margin-top: 20px;
+  height: 100vh;
+  .event-details {
+    width: 50%;
+    height: fit-content;
+    margin-left: 20px;
+    background-color: $light;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0 0 $primary, 2px 2px 0 0 $primary, 3px 3px 0 0 $primary,
+      4px 4px 0 0 $primary;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      padding: 0 20px;
+      flex-direction: column;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      color: $primary;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+
+    %test {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $secondary;
+      font-size: 15px;
+    }
+  }
+}

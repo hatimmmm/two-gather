@@ -2,11 +2,11 @@
 @import "./config/colors";
 @import "./config/fonts";
 @import "./pages/index";
-
 @import "font-awesome";
 @import "clubs/index";
 @import "./components/index";
 @import "simple_calendar";
+@import "events/event-show";
 
 * {
   margin: 0;

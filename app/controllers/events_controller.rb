@@ -16,7 +16,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    render :edit_event
   end
 
   def update

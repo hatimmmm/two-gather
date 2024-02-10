@@ -9,4 +9,10 @@ class PagesController < ApplicationController
     @posts = @club.posts
     @post = Post.new
   end
+
+  def profile
+    @user = current_user
+    @events = @user.events
+    @posts = @user.posts
+  end
 end

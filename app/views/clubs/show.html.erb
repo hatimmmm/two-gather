@@ -5,18 +5,17 @@
       <button class="button main" data-action="click->club#triggerEventModal">create</button>
     </div>
     <%@events.each do |event|%>
-      <div class="event">
+      <a class="event button" href="/events/<%=event.id%>">
         <div class="title">
           <p><%=event.event_name %></p>
         </div>
         <div class="event-info">
           <div class="date">
-            <a value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker" name="" id="">a</a>
             <i class="fa-regular fa-calendar" value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker"></i>
             <i class="fa-solid fa-location-dot"></i>
           </div>
         </div>
-      </div>
+      </a>
     <%end%>
   </div>
   <div class="main">

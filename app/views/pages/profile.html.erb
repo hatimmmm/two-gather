@@ -70,7 +70,7 @@
             <%events.each do |event|%>
               <div class="event">
                 <div class="title">
-                  <p><%=event.event_name %></p>
+                  <a href="/events/<%=event.id%>"><%=event.event_name %></a>
                 </div>
                 <div class="event-info ">
                   <div class="location">

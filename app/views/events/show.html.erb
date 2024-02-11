@@ -1,9 +1,49 @@
 <div class="event-container">
   <div class="event-details">
+    <div class="event-image">
+      <img src="https://images.pexels.com/photos/1306791/pexels-photo-1306791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="<%= @event.event_name %>">
+    </div>
     <div class="event-name">
-      <p><%= @event.event_name %></p>
+      <h1><%= @event.event_name %></h1>
+      <a href="/clubs/<%= @event.club.id %>"><%= @event.club.name %></a>
+    </div>
+    <div class="event-description">
+      <p><%= @event.description %></p>
+    </div>
+    <div class="event-date">
+      <div>
+        <p class="time-label">Starts at</p>
+        <p class="event-start-time"><%= @event.start_time %></p>
+      </div>
+      <div>
+        <p class="time-label">Ends at</p>
+        <p class="event-end-time"><%= @event.end_time %></p>
+      </div>
+    </div>
+    <%seconds_until_start = @event.start_time.to_i - Time.now.to_i%>
+    <div class="countdown" data-controller="countdown" data-countdown-target="countdown" data-seconds-until-end-value="<%=seconds_until_start%>">
+      <div class="timer-container" >
+        <p class="timer" data-countdown-target="days"></p>
+        <p class="timer-label">Days</p>
+      </div>
+      <div class="timer-container">
+        <p class="timer" data-countdown-target="hours"></p>
+        <p class="timer-label">Hours</p>
+      </div>
+      <div class="timer-container">
+        <p class="timer" data-countdown-target="minutes"></p>
+        <p class="timer-label">Minutes</p>
+      </div>
+      <div class="timer-container">
+        <p class="timer" data-countdown-target="seconds"></p>
+        <p class="timer-label">Seconds</p>
+      </div>
     </div>
   </div>
   <div class="event-location">
+    <div style="width: 100%; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @marker.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>

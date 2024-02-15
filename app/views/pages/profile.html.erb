@@ -58,7 +58,21 @@
         <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
         <label for="tab2" class="tabs__label">CLUBS</label>
         <div class="tabs__content">
-          CONTENT for Tab #2
+          <%@clubs.each do |club|%>
+            <div class="club">
+              <div class="club-img">
+                <%=cl_image_tag(club.image.key, width: 500, height: 500, crop: "fill")%>
+              </div>
+              <div class="club-info">
+                <div class="club-name">
+                  <a href="/clubs/<%=club.id%>"><%=club.club_name%></a>
+                </div>
+                <div class="club-description">
+                  <p><%=club.description%></p>
+                </div>
+              </div>
+            </div>
+          <%end%>
         </div>
         <input type="radio" class="tabs__radio" name="tabs-example" id="tab3" checked>
         <label for="tab3" class="tabs__label">EVENTS</label>

@@ -1,0 +1,207 @@
+
+.about-banner {
+  // background: url('about-banner.jpg');
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-cover-pic {
+  width: 100%;
+  height: 300px;
+  // background: url('about-cover-pic.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-1 {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-right: 100px;
+  margin-left: 100px;
+  align-items: center;
+  border: 0.5px solid $primary;
+  border-radius: 5px;
+  background-color: $light;
+
+
+  .about-title {
+    width: fit-content;
+    border: 0.5px solid $primary;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    padding: 5px;
+    background-color: $background;
+    margin-bottom: 10px;
+  }
+
+  .about-1-1 {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-evenly;
+
+    .slogan {
+      margin-bottom: 20px;
+      font-weight: 600;
+      width : 50%;
+      // background-color: $light;
+      // border: 0.5px solid $primary;
+      // border: 0.5px solid $primary;
+      border-radius: 5px;
+      // box-shadow: 10px 10px 5px 0px grey;
+      margin: 0 10px;
+      span {
+        color: $red;
+      }
+    }
+    .intro-1 {
+      font-weight: 100;
+      text-align: center;
+      padding-right: 20px;
+      padding-left: 10px;
+      // background-color: $background;
+      // border: 0.5px solid $primary;
+      // border-radius: 5px;
+      // box-shadow: 10px 10px 5px 0px grey;
+      margin: 0 10px;
+    }
+    .intro-2 {
+      font-weight: 100;
+      text-align: center;
+      padding-right: 10px;
+      // padding-left: 10px;
+      // background-color: $background;
+      // border: 0.5px solid $primary;
+      // border-radius: 5px;
+      // box-shadow: 10px 10px 5px 0px grey;
+      margin: 0 10px;
+    }
+  }
+}
+
+
+.diff-points {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-right: 80px;
+  margin-left: 80px;
+  padding: 10px;
+
+  .diff {
+    border: 0.5px solid $primary;
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 5px;
+    background-color: $light;
+    .diff-head {
+      display: flex;
+      flex-direction: row;
+    }
+    .diff-pic {
+      height: 50px;
+      width: 50px;
+      border: 0.5px solid $primary;
+      border-radius: 50%;
+    }
+    .diff-point-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      margin-left: 75px;
+    }
+  }
+
+  .diff-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+
+    .diff-point-content {
+      font-weight: 100;
+    }
+  }
+}
+
+.team-members {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 1%;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding: 50px;
+
+
+  .team-sec2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .round-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    // background: url('member-pic.jpg');
+  }
+
+
+  .member{
+    text-align: center;
+
+    h6 {
+      background-color: $red;
+
+      border-radius: 5px;
+
+
+      font-weight: 600;
+      margin-bottom: 10px;
+
+
+    }
+  }
+}
+
+
+.partners {
+  text-align: center;
+  background-color: $background;
+
+  .partners-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .partner-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .partner-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+  }
+}

@@ -78,3 +78,7 @@ gem "simple_form"
 gem "dotenv-rails"
 
 gem "cloudinary"
+
+gem "simple_calendar"
+
+gem "geocoder"

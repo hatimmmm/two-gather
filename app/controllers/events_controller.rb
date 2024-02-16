@@ -12,10 +12,12 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+
+    @marker = { lat: @event.latitude, lng: @event.longitude }
   end
 
   def edit
-    render :edit_event
   end
 
   def update
@@ -36,7 +38,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:club_id, :event_name, :description, :location, :start_date, :end_date)
+    params.require(:event).permit(:club_id, :event_name, :description, :location, :start_time, :end_time)
   end
 
   def set_event

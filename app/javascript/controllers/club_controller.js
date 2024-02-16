@@ -3,13 +3,11 @@ import { Controller } from "@hotwired/stimulus";
 // Connects to data-controller="club"
 export default class extends Controller {
   static targets = [
-    "postModal",
-    "leave",
-    "modal",
     "form",
     "clubCard",
     "joinButton",
     "eventModal",
+    "postModal",
   ];
   connect() {}
 
@@ -17,6 +15,7 @@ export default class extends Controller {
     // const modal = document.getElementById("postModal");
     // modal.classList.add("is-active");
     e.preventDefault();
+    console.log("Triggering post modal");
     this.postModalTarget.classList.toggle("hide");
   }
 
@@ -58,5 +57,20 @@ export default class extends Controller {
     } catch (error) {
       console.error("Error:", error.message);
     }
+  }
+
+  getClubs() {
+    console.log("Getting clubs");
+    fetch("/clubs", {
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
+          .content,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
   }
 }

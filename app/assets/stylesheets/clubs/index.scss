@@ -52,6 +52,8 @@
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
     background-color: $orange;
     margin-right: 20px;
+    box-shadow: 1px 1px 0 0 $primary, 2px 2px 0 0 $primary, 3px 3px 0 0 $primary,
+      4px 4px 0 0 $primary;
     .card-header {
       display: flex;
       justify-content: space-between;
@@ -156,14 +158,4 @@
   .secondary {
     width: 40%;
   }
-}
-
-.delete {
-  color: $red;
-  padding: 5px 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  background: none;
 }

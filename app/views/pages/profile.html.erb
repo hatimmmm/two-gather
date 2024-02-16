@@ -1,6 +1,6 @@
 <div class="profile-container">
   <div class="banner">
-    <img class="cover-pic" src="https://t3.ftcdn.net/jpg/01/94/29/16/360_F_194291600_DutFTKjA2YRgDW11EQ6caPojM93Ljmvm.jpg" alt="...">
+    <img class="cover-pic" src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg" alt="...">
   </div>
   <div class="profile-info">
     <div class="left">
@@ -8,7 +8,11 @@
         <%= cl_image_tag(current_user.avatar_url)%>
       </div>
       <div class="info-section">
-        <h5><em><%=current_user.full_name%></em></h5>
+        <h5><em><%=current_user.full_name%></em>
+          <a href="users/edit">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </a>
+        </h5>
         <p class="description">Description</p>
         <p class="mail"><%=current_user.email%></p>
       </div>
@@ -22,7 +26,7 @@
           <h6>ADMIN</h6>
         </div>
         <div class="stat3">
-          <p class="event-stat">100</p>
+          <p class="event-stat"><%=@events.count%></p>
           <h6>EVENTS</h6>
         </div>
       </div>
@@ -38,25 +42,46 @@
     </div>
     <div class="right">
       <div class="tabs">
-        <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
+        <input type="radio" class="tabs__radio" name="tabs-example" id="tab1">
         <label for="tab1" class="tabs__label">PHOTOS</label>
         <div class="tabs__content">
-          CONTENT for Tab #1
+          <div class="photos">
+            <%@posts.each do |post|%>
+              <%if post.photo.attached?%>
+                <div class="photo">
+                  <%=cl_image_tag(post.photo.key, width: 500, height: 500, crop: "fill")%>
+                </div>
+              <%end%>
+            <%end%>
+          </div>
         </div>
         <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
         <label for="tab2" class="tabs__label">CLUBS</label>
         <div class="tabs__content">
           CONTENT for Tab #2
         </div>
-        <input type="radio" class="tabs__radio" name="tabs-example" id="tab3">
+        <input type="radio" class="tabs__radio" name="tabs-example" id="tab3" checked>
         <label for="tab3" class="tabs__label">EVENTS</label>
         <div class="tabs__content">
-          CONTENT for Tab #3
-        </div>
-        <input type="radio" class="tabs__radio" name="tabs-example" id="tab4" >
-        <label for="tab4" class="tabs__label">ABOUT</label>
-        <div class="tabs__content">
-          CONTENT for Tab #4
+          <%= month_calendar(events: @events) do |date, events|%>
+            <div class="day">
+              <%=date.day%>
+            </div>
+            <%events.each do |event|%>
+              <div class="event">
+                <div class="title">
+                  <a href="/events/<%=event.id%>"><%=event.event_name %></a>
+                </div>
+                <div class="event-info ">
+                  <div class="location">
+                    <p>
+                      <%= event.location%>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            <%end%>
+          <%end%>
         </div>
       </div>
     </div>

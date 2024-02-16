@@ -5,17 +5,17 @@
       <button class="button main" data-action="click->club#triggerEventModal">create</button>
     </div>
     <%@events.each do |event|%>
-      <div class="event">
+      <a class="event button" href="/events/<%=event.id%>">
         <div class="title">
-          <p><%=event.start_date.strftime("%F") %></p>
+          <p><%=event.event_name %></p>
         </div>
         <div class="event-info">
           <div class="date">
-            <i class="fa-regular fa-calendar" value="<%=event.start_date.strftime("%F") %>" data-controller="datepicker"></i>
+            <i class="fa-regular fa-calendar" value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker"></i>
             <i class="fa-solid fa-location-dot"></i>
           </div>
         </div>
-      </div>
+      </a>
     <%end%>
   </div>
   <div class="main">
@@ -100,9 +100,28 @@
                   </div>
                 <%end%>
               </div>
-              <div  class="comments">
-                <i class="fa-solid fa-message"></i>
-                <a href="#">Comments</a>
+              <div  class="comments-container">
+                <div class="comment-input">
+                  <input type="text" data-post-target="comment">
+                  <button class="button main" data-action="click->post#addComment" data-post="<%=post.id%>">Comment</button>
+                </div>
+                <div class="comments">
+                  <%if post.comments.exists?%>
+                    <% post.comments.each do |comment|%>
+                      <div class="comment">
+                        <div class="avatar">
+                          <%= cl_image_tag comment.user.avatar.key if comment.user.avatar.attached? %>
+                        </div>
+                        <div class="comment-content">
+                          <p class="comment-author"><%= comment.user.full_name%></p>
+                          <p><%= comment.content%></p>
+                        </div>
+                      </div>
+                    <%end%>
+                  <%else%>
+                    <p>No comments yet</p>
+                  <%end%>
+                </div>
               </div>
             </div>
           <%end%>
@@ -133,7 +152,7 @@
           <%= f.input :photo, as: :file, input_html: {class: "add-image"} %>
           <div class="modal-container-footer">
             <%= f.submit "Create Post",class: "button main" %>
-            <button class="button secondary" data-action="click->club#triggerModal">Close</button>
+            <button class="button secondary" data-action="click->club#triggerPostModal">Close</button>
           </div>
         <% end %>
       </div>
@@ -152,8 +171,8 @@
           <%= f.input :club_id, as: :hidden , input_html: { value: @club.id}%>
           <%= f.input :event_name %>
           <%= f.input :location%>
-          <%= f.input :start_date,as: :string,input_html: { data: { controller: "datepicker" } } %>
-          <%= f.input :end_date,as: :string,input_html: { data: { controller: "datepicker" } }%>
+          <%= f.input :start_time,as: :string,input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :end_time,as: :string,input_html: { data: { controller: "datepicker" } }%>
           <%= f.input :description, as: :text, class: "text-area" %>
           <div class="modal-container-footer">
             <%= f.submit "Create event",class: "button main" %>

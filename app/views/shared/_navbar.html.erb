@@ -1,54 +1,55 @@
-  <nav data-controller="navbar">
-  <ul>
-    <li>
-      <div class="logo">
-        <a href="/">
-          <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707159631/assets/2gather_logo_ruyjpc.png") %>
-        </a>
-      </div>
-    </li>
-    <%if user_signed_in?%>
+  <nav>
+    <ul>
       <li>
-        <div class="nav-links" >
-          <a href="/">Home</a>
-          <a href="/clubs">Clubs</a>
-          <a href="">Recommendations</a>
+        <div class="logo">
+          <a href="/">
+            <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707159631/assets/2gather_logo_ruyjpc.png") %>
+          </a>
         </div>
       </li>
-      <li>
-        <div class="search-bar">
-          <input type="search" placeholder="Search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-      </li>
-      <li class="nav-icons">
-        <div >
-          <i class="fa-solid fa-message"></i>
-          <i class="fa-solid fa-heart"></i>
-        </div>
-      </li>
-      <li>
-        <div class="dropdown">
-          <div class="avatar" data-action="click->navbar#toggleMenu" data-navbar-target="avatar">
-            <%if current_user.avatar.attached?%>
-              <%=cl_image_tag(current_user.avatar.key)%>
-            <%else%>
-              <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg")%>
-            <%end%>
+      <%if user_signed_in?%>
+        <li>
+          <div class="nav-links" >
+            <a href="/">Home</a>
+            <a href="/clubs">Clubs</a>
+            <a href="">Recommendations</a>
           </div>
-          <div id="drop" class="dropdown-menu hide" aria-labelledby="dropdownMenuButton" data-navbar-target="menu">
-            <a class="dropdown-item" href="/profile">Profile</a>
-            <a href="">My clubs</a>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </li>
+        <li>
+          <div class="search-bar">
+            <input type="search" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-        </div>
-      </li>
-    <%else%>
-      <li>
-        <%= link_to "Login", new_user_session_path, class: "nav-link text-light" %>
-      </li>
-    <%end%>
-  </ul>
-</nav>
-<%# <i class="fa-regular fa-comment"></i> %>
-<%# <i class="fa-regular fa-bell"></i> %>
+        </li>
+        <li class="nav-icons">
+          <div >
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <div class="avatar" data-action="click->navbar#toggleMenu" data-navbar-target="avatar">
+              <%if current_user.avatar.attached?%>
+                <%=cl_image_tag(current_user.avatar.key)%>
+              <%else%>
+                <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg")%>
+              <%end%>
+            </div>
+            <div id="drop" class="dropdown-menu hide" aria-labelledby="dropdownMenuButton" data-navbar-target="menu">
+              <a class="dropdown-item" href="/profile">Profile</a>
+              <a href="">My clubs</a>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </div>
+        </li>
+      <%else%>
+        <li>
+          <%= link_to "Login", new_user_session_path, class: "nav-link text-light" %>
+        </li>
+      <%end%>
+    </ul>
+  </nav>
+
+</body>
+</html>

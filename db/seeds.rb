@@ -151,7 +151,7 @@ Club.create!({
 Club.create!({
                name: "Drugs. I mean not drugs.",
                description: "We do not sell drugs. They are bad, yo!",
-               image_url: "https://worldstrides.com/wp-content/uploads/2020/10/AdobeStock_170707235_main-min.jpg",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172205/club%20pictures/CLUB_ID_8_-_Not_drugs_r47l08.jpg",
                public: true,
                owner_id: 5,
              })
@@ -167,7 +167,7 @@ Club.create!({
 Club.create!({
   name: "Hang out with Paul",
   description: "I'm Paul. Please guys. Anyone.",
-  image_url: "https://m.media-amazon.com/images/M/MV5BMTQ3ODExOTk1N15BMl5BanBnXkFtZTcwMTQzMDQ2NA@@._V1_.jpg",
+  image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172206/club%20pictures/CLUB_ID_10_-_Paul_smijgn.webp",
   public: true,
   owner_id: 1,
 })
@@ -175,7 +175,7 @@ Club.create!({
 Club.create!({
                name: "Don't hang out with Paul",
                description: "Do not trust him. He WILL steal both your pet AND your underwear. Also lamps. And condiments.",
-               image_url: "https://play-lh.googleusercontent.com/proxy/hk0cXPm_fyzKKw6tTkVPlmEPoX9kjvifVQyWSRCvn-wrLtNeKwglPvTaKY2B8kowNLs1Nd_G7BF6Yt4LhecigPhPoqzJfsh6h0vyVsRE7guwt0dbFlgyDbQ=s1920-w1920-h1080",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172208/club%20pictures/CLUB_ID_11_-_Fuck_Paul_rhqafk.jpg",
                public: true,
                owner_id: 5,
              })
@@ -191,7 +191,7 @@ Club.create!({
 Club.create!({
                name: "Chicken on a sofa",
                description: "Pranks! Chicken! Breaking and entering strangers' homes!",
-               image_url: "https://i.ytimg.com/vi/jiO2TdhD_ec/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWShRMA8=&rs=AOn4CLDMG3Iqcfa5XJUx76-M1oboe1ao7Q",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172209/club%20pictures/CLUB_ID_13_-_Chicken_on_a_sofa_l86aoo.jpg",
                public: true,
                owner_id: 3,
              })
@@ -199,7 +199,7 @@ Club.create!({
 Club.create!({
                name: "The Teds",
                description: "Collecting Teds",
-               image_url: "https://s3-eu-west-1.amazonaws.com/image-cdn-dev.magnum-dev.com/image/17350/1920x4000.jpg",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172210/club%20pictures/CLUB_ID_14_-_The_Teds_dxeffe.jpg",
                public: true,
                owner_id: 4,
              })
@@ -221,17 +221,9 @@ Club.create!({
              })
 
 Club.create!({
-               name: "Throwing rocks at children",
-               description: "You have to bring your own rock. No need to provide the children.",
-               image_url: "https://qph.cf2.quoracdn.net/main-qimg-f9cd00f9bf09bbc824f8f4c4736c171d-lq",
-               public: true,
-               owner_id: 5,
-             })
-
-Club.create!({
                name: "Throwing rocks at people in general ",
                description: "You have to bring your own rock. The people are free range.",
-               image_url: "https://gp1.wac.edgecastcdn.net/802892/http_public_production/artists/images/3603652/original/crop:x0y0w485h324/hash:1467469688/1423197602_rock_throwing1254687545.jpg?1467469688",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172211/club%20pictures/CLUB_ID_18_-_Throwing_rocks_at_people_zeby2e.jpg",
                public: true,
                owner_id: 3,
              })
@@ -317,6 +309,15 @@ Club.create!({
              })
 
 Club.create!({
+               name: "Skewer? I hardly know her",
+               description: "Have a barbecue with us ! Bring
+              your own parts.",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172213/club%20pictures/CLUB_ID_29_-_SKEWER_HARDLY_KNOW_HER_doseaj.jpg",
+               public: true,
+               owner_id: 5,
+             })
+
+Club.create!({
                name: "The Card Collective",
                description: "Aiming to unite a jovial group of card game fanatics.",
                image_url: "https://www.classicgamesandpuzzles.com/images/Group_Card_Game.jpeg",
@@ -335,11 +336,34 @@ Club.create!({
 Club.create!({
                name: "Cannibals (Not So) Anonymous",
                description: "Free snacks provided. Paul might be there",
-               image_url: "https://happycredit.in/cloudinary_opt/blog/5-best-barbeque-grills-in-india-for-people-who-love-to-cook-mh9e2.webp",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172214/club%20pictures/CLUB_ID_32_-_cannibals_anonymous_kdqpgv.jpg",
                public: true,
                owner_id: 5,
              })
 
+Club.create!({
+               name: "Divorcee ? Digiorno",
+               description: "Providing you with a support system and pizza so you don't key your ex husband's car.",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172214/club%20pictures/CLUB_ID_33_-_Divorcee___Digiorno_muf8iw.jpg",
+               public: true,
+               owner_id: 1,
+             })
+
+Club.create!({
+               name: "Slasher roleplay",
+               description: "Our killer got mononucleosis at a festival.",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172203/club%20pictures/CLUB_ID_34_-_Slasher_RP_okkxs6.jpg",
+               public: true,
+               owner_id: 1,
+             })
+
+Club.create!({
+               name: "Making an app that allows you to join clubs",
+               description: "Nothing to do with this one. This is an original and separate idea.",
+               image_url: "https://res.cloudinary.com/dgpk6t1we/image/upload/v1708172204/club%20pictures/CLUB_ID_35_-_Making_app_3gather_vit0jd.jpg",
+               public: true,
+               owner_id: 1,
+             })
 puts "#{Club.count} clubs have risen"
 
 Category.create({
@@ -631,26 +655,20 @@ ClubCategory.create!({
   category_id: 11,
 })
 
-# ClubCategory.create!({
-#   club_id: 32,
-#   category_id: 20,
-# })
+ClubCategory.create!({
+  club_id: 32,
+  category_id: 20,
+})
 
-# ClubCategory.create!({
-#   club_id: 33,
-#   category_id: 24,
-# })
+ClubCategory.create!({
+  club_id: 33,
+  category_id: 24,
+})
 
-# ClubCategory.create!({
-#   club_id: 34,
-#   category_id: 31,
-# })
-
-# ClubCategory.create!({
-#   club_id: 35,
-#   category_id: 32,
-# })
-
+ClubCategory.create!({
+  club_id: 34,
+  category_id: 31,
+})
 Post.create({
               content: "AAAAAAAAAAAAAAAAAAAAAAAAAAH",
               user_id: 1,

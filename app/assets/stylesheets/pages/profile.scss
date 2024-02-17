@@ -27,6 +27,61 @@
       }
     }
   }
+
+  .clubs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    .club {
+      width: 48%;
+      height: 70px;
+      box-shadow: $box-shadow;
+      border-radius: 10px;
+      background-color: $light-yellow;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-bottom: 20px;
+      .club-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        overflow: hidden;
+        img {
+          height: 100%;
+        }
+      }
+      .club-info {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 10px;
+        width: 60%;
+        .club-name a {
+          color: $primary;
+          text-decoration: none;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        .club-members {
+          font-size: 1em;
+          font-family: sans-serif;
+          color: $secondary;
+        }
+
+        .club-description {
+          font-size: 1.1em;
+          font-family: sans-serif;
+          color: $secondary;
+        }
+      }
+    }
+  }
 }
 
 .profile-info {

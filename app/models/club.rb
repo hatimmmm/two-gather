@@ -9,6 +9,7 @@ class Club < ApplicationRecord
   has_many :users, through: :memberships
   has_many :club_categories
   has_many :categories, through: :club_categories
+  has_one_attached :photo
 
   def members
     self.users

@@ -1,4 +1,3 @@
-
 @import "./new";
 .clubs-container {
   width: 100%;
@@ -135,7 +134,7 @@
   }
   .clubs-sidebar {
     width: 20%;
-    height: 100vh;
+    height: fit-content;
     padding: 20px;
     display: flex;
     flex-direction: column;

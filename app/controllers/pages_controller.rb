@@ -17,6 +17,7 @@ class PagesController < ApplicationController
     @user = current_user
     @events = @user.events
     @posts = @user.posts
+    @clubs = @user.clubs
   end
   
 end

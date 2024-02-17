@@ -18,6 +18,4 @@ export default class extends Controller {
   toggleMenu() {
     this.menuTarget.classList.toggle("hide");
   }
-
-
 }

@@ -5,7 +5,11 @@
   <div class="profile-info">
     <div class="left">
       <div class="avatar profile">
-        <%= cl_image_tag(current_user.avatar_url)%>
+        <%if current_user.avatar.attached?%>
+          <%=cl_image_tag(current_user.avatar.key)%>
+        <%else%>
+          <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg")%>
+        <%end%>
       </div>
       <div class="info-section">
         <h5><em><%=current_user.full_name%></em>
@@ -58,7 +62,26 @@
         <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
         <label for="tab2" class="tabs__label">CLUBS</label>
         <div class="tabs__content">
-          CONTENT for Tab #2
+          <div class="clubs">
+            <%@clubs.each do |club|%>
+              <div class="club">
+                <div class="club-image">
+                  <%=image_tag(club.image_url)%>
+                </div>
+                <div class="club-info">
+                  <div class="club-name">
+                    <a href="/clubs/<%=club.id%>"><%=club.name%></a>
+                  </div>
+                  <div class="club-members">
+                    <p><%=club.members.count%> Members</p>
+                  </div>
+                </div>
+                <div class="club-actions">
+                  <%= button_to "Leave" ,@membership, method: :delete, class: "button delete" %>
+                </div>
+              </div>
+            <%end%>
+          </div>
         </div>
         <input type="radio" class="tabs__radio" name="tabs-example" id="tab3" checked>
         <label for="tab3" class="tabs__label">EVENTS</label>

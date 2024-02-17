@@ -1,207 +1,165 @@
-
-.about-banner {
-  // background: url('about-banner.jpg');
-  width: 100%;
-  background-size: cover;
+.about-container {
+  background-image: url(pngwing.com.png);
   background-position: center;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.about-cover-pic {
-  width: 100%;
-  height: 300px;
-  // background: url('about-cover-pic.jpg');
   background-size: cover;
-  background-position: center;
+  background-attachment: fixed;
 }
 
-.about-1 {
-  padding: 20px;
-  text-align: center;
+.section1 {
+  height: 90vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  margin-right: 100px;
-  margin-left: 100px;
-  align-items: center;
-  border: 0.5px solid $primary;
-  border-radius: 5px;
-  background-color: $light;
+  padding: 0 50px;
 
-
-  .about-title {
-    width: fit-content;
-    border: 0.5px solid $primary;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    align-items: center;
-    padding: 5px;
-    background-color: $background;
-    margin-bottom: 10px;
-  }
-
-  .about-1-1 {
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    justify-content: space-evenly;
-
-    .slogan {
-      margin-bottom: 20px;
-      font-weight: 600;
-      width : 50%;
-      // background-color: $light;
-      // border: 0.5px solid $primary;
-      // border: 0.5px solid $primary;
-      border-radius: 5px;
-      // box-shadow: 10px 10px 5px 0px grey;
-      margin: 0 10px;
-      span {
-        color: $red;
-      }
-    }
-    .intro-1 {
-      font-weight: 100;
-      text-align: center;
-      padding-right: 20px;
-      padding-left: 10px;
-      // background-color: $background;
-      // border: 0.5px solid $primary;
-      // border-radius: 5px;
-      // box-shadow: 10px 10px 5px 0px grey;
-      margin: 0 10px;
-    }
-    .intro-2 {
-      font-weight: 100;
-      text-align: center;
-      padding-right: 10px;
-      // padding-left: 10px;
-      // background-color: $background;
-      // border: 0.5px solid $primary;
-      // border-radius: 5px;
-      // box-shadow: 10px 10px 5px 0px grey;
-      margin: 0 10px;
-    }
-  }
-}
-
-
-.diff-points {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 80px;
-  margin-left: 80px;
-  padding: 10px;
-
-  .diff {
-    border: 0.5px solid $primary;
-    border-radius: 5px;
-    margin: 0 10px;
-    padding: 5px;
-    background-color: $light;
-    .diff-head {
-      display: flex;
-      flex-direction: row;
-    }
-    .diff-pic {
-      height: 50px;
-      width: 50px;
-      border: 0.5px solid $primary;
-      border-radius: 50%;
-    }
-    .diff-point-title {
-      font-weight: 600;
-      margin-bottom: 10px;
-      margin-left: 75px;
-    }
-  }
-
-  .diff-point {
+  .hero {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    background-color: $light;
+    border: 3px solid $primary;
+    border-radius: 10px;
+    box-shadow: $box-shadow;
+    height: fit-content;
+    align-self: center;
+    color: $primary;
 
-    .diff-point-content {
-      font-weight: 100;
+    .title {
+      align-self: flex-start;
+      font-size: 3em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .slogan {
+      font-size: 1.5em;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+  }
+  .side-pic {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
     }
   }
 }
 
 .team-members {
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 1%;
-  margin-right: 100px;
-  margin-left: 100px;
-  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: $light;
+  padding: 0 50px;
 
-
-  .team-sec2 {
+  .members {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-  .round-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    // background: url('member-pic.jpg');
-  }
-
-
-  .member{
-    text-align: center;
-
-    h6 {
-      background-color: $red;
-
-      border-radius: 5px;
-
-
-      font-weight: 600;
-      margin-bottom: 10px;
-
-
+    width: 100%;
+    .member {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 3px solid $primary;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: $box-shadow;
+      background-color: $yellow;
+      .member-name {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: $primary;
+      }
+      .member-description {
+        margin-bottom: 10px;
+        padding: 15px;
+        height: 100px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        color: $primary;
+        overflow: auto;
+      }
+      .member-pic {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        border-bottom: 3px solid $primary;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .member-socials {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        a {
+          color: $orange;
+          text-decoration: none;
+          font-size: 1.5em;
+        }
+      }
     }
   }
 }
-
+.team-members::before {
+  content: "";
+  position: absolute;
+  top: calc(100% - 19px);
+  height: 20px;
+  width: 100%;
+  left: 0;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/23618/rip.svg)
+    bottom;
+  transform: rotate(180deg);
+}
 
 .partners {
   text-align: center;
   background-color: $background;
+  padding: 50px 50px;
 
   .partners-title {
     font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
+    font-size: 50px;
+  }
+  p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
   }
   .partner-logos {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
   }
   .partner-logo {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 100px;
     border-radius: 5px;
+    img {
+      width: 100%;
+    }
   }
 }

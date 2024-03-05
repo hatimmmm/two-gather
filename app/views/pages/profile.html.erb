@@ -5,11 +5,7 @@
   <div class="profile-info">
     <div class="left">
       <div class="avatar profile">
-        <%if current_user.avatar.attached?%>
-          <%=cl_image_tag(current_user.avatar.key)%>
-        <%else%>
-          <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg")%>
-        <%end%>
+          <%=cl_image_tag(current_user.avatar_url,:gravity=>"center", :height=>250, :quality=>"auto", :width=>250, :crop=>"fill")%>
       </div>
       <div class="info-section">
         <h5><em><%=current_user.full_name%></em>

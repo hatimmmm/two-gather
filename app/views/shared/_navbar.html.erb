@@ -31,7 +31,7 @@
         <div class="dropdown">
           <div class="avatar" data-action="click->navbar#toggleMenu" data-navbar-target="avatar">
             <%if current_user.avatar.attached?%>
-              <%=cl_image_tag(current_user.avatar.key)%>
+              <%=cl_image_tag(current_user.avatar.key,:gravity=>"center", :height=>100, :quality=>"auto", :width=>100, :crop=>"fill")%>
             <%else%>
               <%=image_tag("https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg")%>
             <%end%>

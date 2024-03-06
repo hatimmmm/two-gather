@@ -9,15 +9,14 @@ class PagesController < ApplicationController
     @posts = @club.posts
     @post = Post.new
   end
-  
+
   def about
   end
-  
+
   def profile
-    @user = current_user
+    @user = User.find(params[:id])
     @events = @user.events
     @posts = @user.posts
     @clubs = @user.clubs
   end
-  
 end

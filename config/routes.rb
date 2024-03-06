@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home", as: :home
   get "about" => "pages#about", as: :about
-  get "profile" => "pages#profile", as: :profile
+  get "profile/:id" => "pages#profile", as: :profile
 
   resources :clubs
   resources :posts

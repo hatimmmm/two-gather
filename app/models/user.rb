@@ -46,7 +46,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar.key
     else
-      "https://res.cloudinary.com/dgpk6t1we/image/upload/v1707165672/assets/27470339_7294787_bxgffu.jpg"
+      "assets/default_avatar.jpg"
     end
   end
 

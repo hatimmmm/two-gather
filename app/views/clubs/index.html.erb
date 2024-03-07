@@ -12,7 +12,7 @@
           </div>
           <div class="card-body">
             <div class="card-image">
-              <%= image_tag(club.image_url)%>
+              <%= cl_image_tag(club.image.key)%>
             </div>
             <div class="card-info">
               <div class="card-title">

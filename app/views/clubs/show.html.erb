@@ -20,7 +20,7 @@
   </div>
   <div class="main">
     <div class="banner">
-      <%= image_tag(@club.image_url)%>
+      <%= cl_image_tag(@club.image.key)%>
     </div>
     <div class="header">
       <div class="info">

@@ -61,7 +61,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_202946) do
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "image_url"
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

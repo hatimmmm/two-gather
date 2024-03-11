@@ -18,5 +18,6 @@ class PagesController < ApplicationController
     @events = @user.events
     @posts = @user.posts
     @clubs = @user.clubs
+    @membership = @user
   end
 end

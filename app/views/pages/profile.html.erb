@@ -62,7 +62,7 @@
             <%@clubs.each do |club|%>
               <div class="club">
                 <div class="club-image">
-                  <%=image_tag(club.image_url)%>
+                  <%=cl_image_tag(club.image.key)%>
                 </div>
                 <div class="club-info">
                   <div class="club-name">
@@ -73,6 +73,7 @@
                   </div>
                 </div>
                 <div class="club-actions">
+                  <% @membership = Membership.find_by(user_id: @user.id,club_id: club.id)%>
                   <%= button_to "Leave" ,@membership, method: :delete, class: "button delete" %>
                 </div>
               </div>

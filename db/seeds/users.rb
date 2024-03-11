@@ -141,5 +141,3 @@ USERS.each do |user|
   User.create!(user)
   puts "Created user: #{user[:first_name]} #{user[:last_name]}"
 end
-
-puts "#{User.count} users have spawned"

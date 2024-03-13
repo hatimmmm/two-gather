@@ -82,3 +82,5 @@ gem "cloudinary"
 gem "simple_calendar"
 
 gem "geocoder"
+
+gem "tailwindcss-rails", "~> 2.3"

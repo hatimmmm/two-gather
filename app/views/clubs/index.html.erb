@@ -1,6 +1,6 @@
 <div class="clubs-container" data-controller="club">
-  <div class="clubs-header">
-    <h1>Clubs</h1>
+  <div class="flex item-center justify-right py-10">
+    <h1 class="text-5xl font-bold">Clubs</h1>
   </div>
   <div class="clubs-body">
     <div class="clubs">
@@ -17,19 +17,20 @@
             <div class="card-info">
               <div class="card-title">
                 <a href="clubs/<%=club.id%>">
-                  <h3><%=club.name%></h3>
+                  <h3 class="text-lg font-medium"><%=club.name%></h3>
                 </a>
               </div>
               <div class="category-members">
 
                 <div class="card-category">
                   <%club.categories.each do|category|%>
-                    <p><%=category.name%>, </p>
+                    <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%=category.name%></span>
+
                   <%end%>
                 </div>
                 <div class="members">
-                  <%= club.members.count%>
-                  <i class="fa-solid fa-user-group"></i>
+                  <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%= club.members.count%>
+                    <i class="fa-solid fa-user-group"></i></span>
 
                 </div>
 

@@ -24,7 +24,7 @@
 
   .clubs {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
     justify-content: start;
     width: 100%;
@@ -40,7 +40,7 @@
 
   .club-card {
     width: 100%;
-    height: 330px;
+    height: 350px;
     border: solid 3px $primary;
     border-radius: 10px;
     display: flex;
@@ -53,6 +53,7 @@
     margin-right: 20px;
     box-shadow: 1px 1px 0 0 $primary, 2px 2px 0 0 $primary, 3px 3px 0 0 $primary,
       4px 4px 0 0 $primary;
+    flex-grow: 1;
     .card-header {
       display: flex;
       justify-content: space-between;
@@ -66,21 +67,22 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 90%;
       width: 100%;
+      height: 100%;
       text-align: center;
       padding: 5px;
       background-color: $yellow;
       border-radius: 10px;
 
       .card-image {
-        height: 50%;
-        width: 100%;
         border-radius: 10px;
         overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16/9;
 
         img {
           width: 100%;
+          height: 100%;
           object-fit: cover;
         }
       }
@@ -105,10 +107,28 @@
             color: $primary;
           }
         }
-        .card-category {
-          font-size: 12px;
-          font-weight: 500;
-          color: $secondary;
+        .category-members {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          .card-category {
+            font-size: 14px;
+            font-weight: 500;
+            color: $secondary;
+            display: flex;
+            justify-content: center;
+          }
+          .members {
+            font-size: 14px;
+            font-weight: 500;
+            color: $secondary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+              margin-left: 5px;
+            }
+          }
         }
       }
 
@@ -119,6 +139,10 @@
         width: 100%;
         align-items: center;
         font-size: 13px;
+        margin-bottom: 10px;
+        a {
+          width: 100%;
+        }
       }
 
       .card-footer {

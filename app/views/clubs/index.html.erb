@@ -12,7 +12,7 @@
           </div>
           <div class="card-body">
             <div class="card-image">
-              <%= cl_image_tag(club.image.key)%>
+              <%= cl_image_tag(club.image.key,width: 854,height: 480, quality:"auto:eco",:crop=>"fill")%>
             </div>
             <div class="card-info">
               <div class="card-title">
@@ -20,23 +20,28 @@
                   <h3><%=club.name%></h3>
                 </a>
               </div>
-              <div class="card-category">
-                <%club.categories.each do|category|%>
-                  <p><%=category.name%>, </p>
-                <%end%>
+              <div class="category-members">
+
+                <div class="card-category">
+                  <%club.categories.each do|category|%>
+                    <p><%=category.name%>, </p>
+                  <%end%>
+                </div>
+                <div class="members">
+                  <%= club.members.count%>
+                  <i class="fa-solid fa-user-group"></i>
+
+                </div>
+
               </div>
             </div>
+
             <div class="card-buttons">
               <%if current_user.clubs.exists?(club.id)%>
                 <a href="clubs/<%=club.id%>" class="button main">View</a>
               <%else%>
                 <a href="" class="button main" data-club-target="joinButton" data-club-id="<%=club.id%>" data-action="click->club#joinClub">Join</a>
               <%end%>
-              <a href="" class="button secondary">Message</a>
-            </div>
-            <div class="card-footer">
-              <div class="members">10/<%= club.members.count%></div>
-              <div class="members"><%= club.created_at.to_fs(:short)%></div>
             </div>
           </div>
         </div>

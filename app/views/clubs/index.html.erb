@@ -12,7 +12,10 @@
           </div>
           <div class="card-body">
             <div class="card-image">
-              <%= cl_image_tag(club.image.key,width: 854,height: 480, quality:"auto:eco",:crop=>"fill")%>
+              <a href="clubs/<%=club.id%>">
+                <%= cl_image_tag(club.image.key,width: 854,height: 480, quality:"auto:eco",:crop=>"fill")%>
+              </a>
+
             </div>
             <div class="card-info">
               <div class="card-title">
@@ -39,7 +42,7 @@
 
             <div class="card-buttons">
               <%if current_user.clubs.exists?(club.id)%>
-                <a href="clubs/<%=club.id%>" class="button main">View</a>
+                <a href="clubs/<%=club.id%>" class="button secondary">View</a>
               <%else%>
                 <a href="" class="button main" data-club-target="joinButton" data-club-id="<%=club.id%>" data-action="click->club#joinClub">Join</a>
               <%end%>

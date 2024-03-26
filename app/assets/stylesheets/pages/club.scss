@@ -1,22 +1,18 @@
 .club-container {
   width: 100%;
-  padding: 0 100px;
   display: flex;
   margin-top: 20px;
   height: fit-content;
   .main {
-    width: 75%;
     height: fit-content;
-    margin-left: 20px;
     .banner {
       width: 100%;
-      height: 350px;
       margin-bottom: 20px;
-      border: solid 3px $primary;
+      // border: solid 3px $primary;
       border-radius: 10px;
       overflow: hidden;
       background-color: $light;
-      box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+      box-shadow: $box-shadow;
       img {
         width: 100%;
         height: 100%;
@@ -29,27 +25,17 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      height: 100px;
+      height: fit-content;
       margin-bottom: 20px;
-      border: solid 3px $primary;
+      // border: solid 3px $primary;
       border-radius: 10px;
       background-color: $light;
-      padding: 10px;
-      box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+      box-shadow: $box-shadow;
     }
     .info {
       display: flex;
       justify-content: space-between;
       align-items: start;
-      padding: 0 20px;
-      flex-direction: column;
-    }
-    .title {
-      font-size: 22px;
-      font-weight: 700;
-      color: $primary;
-      margin-bottom: 5px;
-      text-decoration: none;
     }
 
     %test {
@@ -71,33 +57,13 @@
     .members {
       @extend %test;
     }
-    .buttons {
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .add-post {
-        background-color: $orange;
-        margin: 20px;
-        padding: 7px 20px;
-      }
-
-      .leave {
-        background-color: $red;
-        margin: 20px;
-        padding: 7px 20px;
-      }
-    }
     .feed {
-      width: 100%;
-      padding: 0 100px;
       height: fit-content;
 
       .about {
         width: 100%;
         padding: 40px 20px;
-        border: solid 3px $primary;
+        // border: solid 3px $primary;
         border-radius: 10px;
         height: fit-content;
         background-color: $light;
@@ -106,7 +72,7 @@
         justify-content: space-between;
         align-items: start;
         margin-bottom: 20px;
-        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        box-shadow: $box-shadow;
       }
 
       .description {

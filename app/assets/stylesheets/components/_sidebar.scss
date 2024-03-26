@@ -1,17 +1,17 @@
 .sidebar {
   width: 25%;
   height: 100vh;
-  border: solid 3px $primary;
+  border-radius: 10px;
   border-radius: 10px;
   background-color: $light;
-  display: flex;
+
   flex-direction: column;
   justify-content: start;
   align-items: center;
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  box-shadow: $box-shadow;
   position: sticky;
-  top: 20px;
+  top: 84px;
   overflow-y: auto;
   .sidebar-header {
     width: 100%;

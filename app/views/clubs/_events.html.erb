@@ -1,0 +1,17 @@
+<div class="sidebar-header">
+  <h3 class="text-2xl text-primary font-medium">Events</h3>
+  <button class="button main py-2 w-1/2" data-action="click->club#triggerEventModal">create</button>
+</div>
+<%@events.each do |event|%>
+  <a class="event button" href="/events/<%=event.id%>">
+    <div class="title">
+      <p><%=event.event_name %></p>
+    </div>
+    <div class="event-info">
+      <div class="date">
+        <i class="fa-regular fa-calendar" value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker"></i>
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+    </div>
+  </a>
+<%end%>

@@ -8,6 +8,7 @@
       <div class="card-image">
         <a href="clubs/<%=club.id%>">
           <%= cl_image_tag(club.image.key,width: 854,height: 480, quality:"auto:eco",:crop=>"fill")%>
+
         </a>
 
       </div>
@@ -20,10 +21,7 @@
         <div class="category-members">
 
           <div class="card-category">
-            <%club.categories.each do|category|%>
-              <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%=category.name%></span>
-
-            <%end%>
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%=club.category.name%></span>
           </div>
           <div class="members">
             <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%= club.members.count%>

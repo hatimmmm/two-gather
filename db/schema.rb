@@ -49,22 +49,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_202946) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "club_categories", force: :cascade do |t|
-    t.bigint "club_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_club_categories_on_category_id"
-    t.index ["club_id"], name: "index_club_categories_on_club_id"
-  end
-
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.boolean "public"
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id"
+    t.index ["category_id"], name: "index_clubs_on_category_id"
     t.index ["owner_id"], name: "index_clubs_on_owner_id"
   end
 
@@ -153,8 +146,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_202946) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "club_categories", "categories"
-  add_foreign_key "club_categories", "clubs"
+  add_foreign_key "clubs", "categories"
   add_foreign_key "clubs", "users", column: "owner_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"

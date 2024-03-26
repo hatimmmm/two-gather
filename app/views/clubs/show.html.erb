@@ -1,57 +1,45 @@
-<div class="club-container" data-controller="club">
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <h3>Events</h3>
-      <button class="button main" data-action="click->club#triggerEventModal">create</button>
-    </div>
-    <%@events.each do |event|%>
-      <a class="event button" href="/events/<%=event.id%>">
-        <div class="title">
-          <p><%=event.event_name %></p>
-        </div>
-        <div class="event-info">
-          <div class="date">
-            <i class="fa-regular fa-calendar" value="<%=event.start_time.strftime("%F") %>" data-controller="datepicker"></i>
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-        </div>
-      </a>
-    <%end%>
+<div class="club-container p-2 xl:p-100 justify-center xl:justify-between " data-controller="club">
+  <div class="sidebar hidden xl:flex">
+    <%= render 'clubs/events' %>
   </div>
-  <div class="main">
-    <div class="banner">
+  <div class="main w-full xl:w-3/4 xl:ml-5">
+    <div class="banner aspect-[16/9] lg:aspect-[16/10] xl:aspect-[4/1]">
       <%= cl_image_tag(@club.image.key)%>
     </div>
-    <div class="header">
-      <div class="info">
-        <div class="title">
+    <div class="header p-2 flex-col xl:flex-row xl:p-5">
+      <div class="info flex-col self-start xl-flex-row xl:w-3/4">
+
+        <div class="text-xl text-primary font-bold">
           <p><%=@club.name%></p>
         </div>
-        <div class="privacy">
-          <%if @club.public%>
-            <i class="fa-solid fa-earth-europe"></i>
-            <p>Public club</p>
-          <%else%>
-            <i class="fa-solid fa-lock"></i>
-            <p>Private club</p>
-          <%end%>
+        <div class="flex flex-row xl:flex-col">
+          <div class="privacy mr-3">
+            <%if @club.public%>
+              <i class="fa-solid fa-earth-europe"></i>
+              <p>Public club</p>
+            <%else%>
+              <i class="fa-solid fa-lock"></i>
+              <p>Private club</p>
+            <%end%>
+          </div>
+          <div class="members">
+            <i class="fa-solid fa-user-group"></i>
+            <p><%=@club.users.count%> Members</p>
+          </div>
         </div>
-        <div class="members">
-          <i class="fa-solid fa-user-group"></i>
-          <p><%=@club.users.count%> Members</p>
-        </div>
+
       </div>
-      <div class="buttons">
+      <div class="flex items-center justify-between w-full h-1/3 xl:w-1/4">
         <%if current_user.clubs.exists?(@club.id)%>
-          <a href="" class="button add-post" data-action="click->club#triggerPostModal">Post</a>
-          <%= button_to "Leave" ,@membership, method: :delete, class: "button leave" %>
+          <a href="" class="button main w-1/2 py-2" data-action="click->club#triggerPostModal">Post</a>
+          <%= button_to "Leave" ,@membership, method: :delete, class: "button delete py-2 px-10" %>
         <%else%>
-          <a href="" class="button main" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a><%end%>
+          <a href="" class="button main w-1/2" data-controller="club" data-club-target="joinButton" data-club-id="<%=@club.id%>" data-action="click->club#joinClub">Join</a><%end%>
       </div>
     </div>
-    <div class="feed">
+    <div class="feed xl:px-20">
       <div class="about">
-        <div class="title">
+        <div class="title text-xl text-primary font-bold">
           <p>About</p>
         </div>
         <div class="description">
@@ -61,9 +49,8 @@
         </div>
         <div class="category">
           <i class="fa-solid fa-tag"></i>
-          <% @club.categories.each do |category|%>
-            <p><%= category.name%></p>
-          <%end%>
+
+          <p><%= @club.category.name%></p>
         </div>
         <div class="location">
           <i class="fa-solid fa-location-dot"></i>

@@ -6,12 +6,15 @@ module.exports = {
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
     "./app/views/**/*.{erb,haml,html,slim}",
-    "./vendor/javascript/tw-elements.js",
   ],
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        primary: "#003049",
+        orange: "#f77f00",
       },
     },
   },
@@ -20,6 +23,5 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/container-queries"),
-    require("../vendor/javascript/tw-elements--dist--plugin.cjs.js"),
   ],
 };

@@ -84,3 +84,6 @@ gem "simple_calendar"
 gem "geocoder"
 
 gem "tailwindcss-rails", "~> 2.3"
+
+gem "searchkick", "~> 5.3"
+gem "elasticsearch", "~> 8.12"

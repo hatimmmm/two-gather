@@ -10,6 +10,7 @@ class Club < ApplicationRecord
   has_many :club_categories
   has_many :categories, through: :club_categories
   has_one_attached :image
+  searchkick
 
   def members
     self.users

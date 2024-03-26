@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ["menu", "avatar"];
+  static targets = ["mobileMenu", "menu", "avatar"];
   connect() {
     window.addEventListener("click", (e) => {
       if (
@@ -17,5 +17,9 @@ export default class extends Controller {
 
   toggleMenu() {
     this.menuTarget.classList.toggle("hide");
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuTarget.classList.toggle("hidden");
   }
 }

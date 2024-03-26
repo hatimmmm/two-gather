@@ -1,70 +1,31 @@
-<div class="clubs-container" data-controller="club">
+<div class="clubs-container px-5 md:px-10" data-controller="club">
   <div class="flex item-center justify-right py-10">
     <h1 class="text-5xl font-bold">Clubs</h1>
   </div>
-  <div class="clubs-body">
-    <div class="clubs">
-      <% @clubs.each do |club|%>
-        <div class="club-card" data-club-target="clubCard">
-          <div class="card-header">
-            <i class="fa-solid fa-ellipsis"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <div class="card-body">
-            <div class="card-image">
-              <a href="clubs/<%=club.id%>">
-                <%= cl_image_tag(club.image.key,width: 854,height: 480, quality:"auto:eco",:crop=>"fill")%>
-              </a>
-
-            </div>
-            <div class="card-info">
-              <div class="card-title">
-                <a href="clubs/<%=club.id%>">
-                  <h3 class="text-lg font-medium"><%=club.name%></h3>
-                </a>
-              </div>
-              <div class="category-members">
-
-                <div class="card-category">
-                  <%club.categories.each do|category|%>
-                    <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%=category.name%></span>
-
-                  <%end%>
-                </div>
-                <div class="members">
-                  <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%= club.members.count%>
-                    <i class="fa-solid fa-user-group"></i></span>
-
-                </div>
-
-              </div>
-            </div>
-
-            <div class="card-buttons">
-              <%if current_user.clubs.exists?(club.id)%>
-                <a href="clubs/<%=club.id%>" class="button secondary">View</a>
-              <%else%>
-                <a href="" class="button main" data-club-target="joinButton" data-club-id="<%=club.id%>" data-action="click->club#joinClub">Join</a>
-              <%end%>
-            </div>
-          </div>
-        </div>
-      <% end%>
+  <div class="flex flex-col-reverse xl:flex-row w-full">
+    <div class="clubs w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:w-4/5" id="clubs">
+      <%= render 'clubs/clubs', clubs: @clubs %>
     </div>
-    <div class="clubs-sidebar">
-      <div class="clubs-sidebar-header">
-        <h3>Categories</h3>
-      </div>
-      <div class="categories">
-        <% @categories.each do |category|%>
-          <div class="chackbox">
-            <div class="checkbox-rect2">
-              <input type="checkbox" id="<%= category.name%>" name="<%= category.name%>">
-              <label for="<%= category.name%>"><%= category.name%></label>
-            </div>
+
+    <div class="clubs-sidebar xl:w-1/4 sm:w-full mb-5 xl:ms-5">
+
+      <form class="w-full light" method="get" action="/search">
+        <div class="relative xl:mb-3">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
           </div>
-        <%end%>
-      </div>
+          <input type="text" id="default-search" name="q" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "  placeholder="Search"/>
+          <button type="submit" class="button main absolute end-2.5 bottom-2.5 ">Search</button>
+        </div>
+        <select name="category_id"class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ">
+          <option value="" selected>Category</option>
+          <%= @categories.each do |category|%>
+            <option value="<%=category.id%>"><%=category.name%></option>
+          <%end%>
+        </select>
+      </form>
     </div>
   </div>
 </div>

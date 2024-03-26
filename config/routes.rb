@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
   resources :memberships, only: [:create, :destroy, :update]
+
+  get "search" => "search#search", as: :search
   # Defines the root path route ("/")
   # root "posts#index"
 

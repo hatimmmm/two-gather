@@ -1,0 +1,46 @@
+<% clubs.each do |club|%>
+  <div class="club-card h-fit" data-club-target="clubCard">
+    <div class="card-header">
+      <i class="fa-solid fa-ellipsis"></i>
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <div class="card-body">
+      <div class="card-image">
+        <a href="clubs/<%=club.id%>">
+          <%= cl_image_tag(club.image.key,width: 854,height: 480, quality:"auto:eco",:crop=>"fill")%>
+        </a>
+
+      </div>
+      <div class="card-info h-fit">
+        <div class="card-title truncate w-full h-fit">
+          <a href="clubs/<%=club.id%>">
+            <h3 class="text-lg font-medium"><%=club.name%></h3>
+          </a>
+        </div>
+        <div class="category-members">
+
+          <div class="card-category">
+            <%club.categories.each do|category|%>
+              <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%=category.name%></span>
+
+            <%end%>
+          </div>
+          <div class="members">
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 mr-1"><%= club.members.count%>
+              <i class="fa-solid fa-user-group"></i></span>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-buttons">
+        <%if current_user.clubs.exists?(club.id)%>
+          <a href="clubs/<%=club.id%>" class="button secondary">View</a>
+        <%else%>
+          <a href="" class="button main" data-club-target="joinButton" data-club-id="<%=club.id%>" data-action="click->club#joinClub">Join</a>
+        <%end%>
+      </div>
+    </div>
+  </div>
+<% end%>
